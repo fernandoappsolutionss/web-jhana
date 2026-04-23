@@ -1,7 +1,32 @@
+# OS
 .DS_Store
-.vercel
+
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts.bak
+
+# Environment
 .env
 .env.local
-node_modules
+.env.*.local
+
+# Vercel
+.vercel
+
+# Design bundles (handoff, not production)
 design/
+design2/
+
+# Harness
 .claude/
+
+# Misc
+.turbo
+*.log

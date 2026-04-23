@@ -1,0 +1,96 @@
+/* ═════════════ Shared shell for the Expansión 10X portal ═════════════ */
+/* Scoped under .dash-shell so it doesn't leak into the landing styles. */
+
+.dash-shell{
+  --cream:#FBFBF7;--cream-2:#F0F2EA;--sand:#DFE6D5;--sand-2:#E8ECE0;
+  --clay:#3F6B4B;--clay-d:#2D5138;--brick:#1C3A26;
+  --ink:#162218;--ink-2:#455549;--ink-3:#7A8A7F;
+  --gold:#7C9C6E;--accent:#C67650;
+  --line:rgba(22,34,24,.10);--line-2:rgba(22,34,24,.06);
+  --card-bg:#FFFFFF;
+  background:var(--cream);color:var(--ink);
+  font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;
+  display:grid;grid-template-columns:260px 1fr;min-height:100vh;
+}
+@media(max-width:980px){.dash-shell{grid-template-columns:1fr}}
+.dash-shell a{color:inherit;text-decoration:none}
+.dash-shell button{font-family:inherit}
+.dash-shell .mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+
+/* ——— Sidebar ——— */
+.dash-shell .sidebar{
+  background:var(--cream);border-right:1px solid var(--line);
+  padding:28px 20px;position:sticky;top:0;height:100vh;overflow-y:auto;
+  display:flex;flex-direction:column;
+}
+@media(max-width:980px){.dash-shell .sidebar{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--line)}}
+.dash-shell .sb-logo{
+  font-family:'Fraunces',serif;font-weight:400;display:flex;align-items:baseline;gap:8px;line-height:1;
+  padding:0 12px 28px;border-bottom:1px solid var(--line);margin-bottom:20px;
+}
+.dash-shell .sb-logo .j{font-family:'Kaushan Script',cursive;font-weight:400;font-size:30px;color:var(--ink)}
+.dash-shell .sb-logo .el{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.3em;color:var(--ink-2);text-transform:uppercase;font-weight:500}
+
+.dash-shell .sb-role{
+  margin:0 12px 16px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;
+  display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;
+  font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);width:fit-content;
+}
+.dash-shell .sb-role .rdot{width:6px;height:6px;border-radius:99px;background:var(--clay)}
+.dash-shell .sb-role.coach .rdot{background:var(--accent)}
+.dash-shell .sb-role.admin .rdot{background:var(--gold)}
+
+.dash-shell .sb-section{margin-bottom:8px}
+.dash-shell .sb-section-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3);padding:12px 12px 8px}
+.dash-shell .sb-nav{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.dash-shell .sb-nav a{
+  display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:4px;
+  font-size:14px;color:var(--ink-2);transition:all .15s;position:relative;
+}
+.dash-shell .sb-nav a:hover{background:var(--cream-2);color:var(--ink)}
+.dash-shell .sb-nav a.active{background:var(--ink);color:var(--cream)}
+.dash-shell .sb-nav a svg{width:16px;height:16px;stroke-width:1.5;flex-shrink:0}
+
+.dash-shell .sb-user{
+  display:flex;align-items:center;gap:10px;padding:12px;margin-top:14px;
+  border:1px solid var(--line);border-radius:4px;background:var(--card-bg);
+}
+.dash-shell .sb-user .avatar{width:32px;height:32px;border-radius:99px;background:linear-gradient(135deg,var(--gold),var(--clay));display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;color:var(--cream);font-size:15px;flex-shrink:0}
+.dash-shell .sb-user .who{flex:1;min-width:0}
+.dash-shell .sb-user .name{font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dash-shell .sb-user .role{font-size:11px;color:var(--ink-2)}
+.dash-shell .sb-user .logout{background:none;border:none;color:var(--ink-2);cursor:pointer;padding:6px;border-radius:4px;font-size:11px}
+.dash-shell .sb-user .logout:hover{color:var(--accent);background:rgba(198,118,80,.08)}
+
+.dash-shell .sb-plan{
+  margin-top:auto;background:var(--clay-d);color:var(--cream);
+  padding:18px;border-radius:4px;position:relative;overflow:hidden;
+}
+.dash-shell .sb-plan::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(135deg, rgba(244,236,222,.04) 0 1px, transparent 1px 18px)}
+.dash-shell .sb-plan > *{position:relative}
+.dash-shell .sb-plan .sp-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(251,251,247,.7);margin-bottom:8px}
+.dash-shell .sb-plan .sp-title{font-family:'Fraunces',serif;font-weight:300;font-size:22px;letter-spacing:-.02em;line-height:1.05;margin-bottom:4px}
+.dash-shell .sb-plan .sp-title em{font-style:italic;color:var(--gold)}
+.dash-shell .sb-plan .sp-meta{font-size:12px;color:rgba(251,251,247,.75);margin-bottom:14px}
+
+/* ——— Main ——— */
+.dash-shell .main{padding:28px 40px 60px;min-width:0}
+@media(max-width:720px){.dash-shell .main{padding:24px 22px}}
+
+.dash-shell .page-head{margin-bottom:36px}
+.dash-shell .eyebrow{display:flex;align-items:center;gap:10px;color:var(--clay);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+.dash-shell .eyebrow .bar{width:24px;height:1px;background:var(--clay)}
+.dash-shell h1.page-h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(40px,5vw,60px);letter-spacing:-.025em;line-height:.98;margin:0}
+.dash-shell h1.page-h1 em{font-style:italic;color:var(--clay)}
+.dash-shell .page-sub{color:var(--ink-2);font-size:15px;max-width:560px;margin-top:14px;line-height:1.5}
+
+.dash-shell .card{background:var(--card-bg);border:1px solid var(--line);border-radius:4px;padding:24px;position:relative}
+
+.dash-shell .construccion{
+  background:var(--cream-2);border:1px dashed var(--clay);border-radius:4px;
+  padding:40px;text-align:center;color:var(--ink-2);
+}
+.dash-shell .construccion .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:10px}
+.dash-shell .construccion h3{font-family:'Fraunces',serif;font-weight:300;font-size:32px;margin:0 0 10px;color:var(--ink)}
+.dash-shell .construccion h3 em{font-style:italic;color:var(--clay)}
+.dash-shell .construccion p{font-size:14px;line-height:1.6;max-width:520px;margin:0 auto}
