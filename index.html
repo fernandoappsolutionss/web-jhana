@@ -43,43 +43,70 @@
     position:fixed;top:0;left:0;right:0;z-index:50;
     display:flex;align-items:center;justify-content:space-between;
     padding:18px 40px;
-    background:linear-gradient(180deg,rgba(251,251,247,.92),rgba(251,251,247,0));
-    backdrop-filter: blur(8px);-webkit-backdrop-filter: blur(8px);
-    transition:background .3s, border-color .3s;
+    background:linear-gradient(180deg,rgba(22,34,24,.35) 0%,rgba(22,34,24,0) 100%);
+    transition:background .3s, border-color .3s, backdrop-filter .3s;
     border-bottom:1px solid transparent;
   }
-  nav.top.scrolled{background:rgba(251,251,247,.96);border-bottom-color:var(--line)}
+  nav.top.scrolled{background:rgba(251,251,247,.96);border-bottom-color:var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
   nav .brand{display:inline-flex;flex-direction:column;align-items:flex-start;line-height:1;gap:2px;text-decoration:none}
-  nav .brand .script{font-family:'Kaushan Script',cursive;font-size:30px;color:var(--ink);line-height:1;letter-spacing:-.01em;transform:translateY(2px)}
-  nav .brand .sub{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.45em;color:var(--ink);font-weight:500;text-indent:.45em}
+  nav .brand .script{font-family:'Kaushan Script',cursive;font-size:30px;color:var(--cream);line-height:1;letter-spacing:-.01em;transform:translateY(2px);transition:color .3s}
+  nav .brand .sub{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.45em;color:var(--cream);font-weight:500;text-indent:.45em;transition:color .3s}
+  nav.top.scrolled .brand .script,nav.top.scrolled .brand .sub{color:var(--ink)}
   @media (max-width:900px){nav .brand .script{font-size:26px}nav .brand .sub{font-size:8px}}
   nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
-  nav ul a{font-size:13px;color:var(--ink-2);transition:color .2s}
-  nav ul a:hover{color:var(--clay)}
+  nav ul a{font-size:13px;color:rgba(251,251,247,.85);transition:color .2s}
+  nav ul a:hover{color:var(--gold)}
+  nav.top.scrolled ul a{color:var(--ink-2)}
+  nav.top.scrolled ul a:hover{color:var(--clay)}
   nav .cta-nav{
-    font-size:12px;padding:10px 18px;border:1px solid var(--ink);border-radius:999px;
+    font-size:12px;padding:10px 18px;border:1px solid var(--cream);color:var(--cream);border-radius:999px;
     transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-weight:500;
   }
-  nav .cta-nav:hover{background:var(--ink);color:var(--cream)}
-  nav .cta-nav .dot{width:6px;height:6px;border-radius:99px;background:var(--clay);animation:pulse 2s infinite}
+  nav .cta-nav:hover{background:var(--cream);color:var(--ink)}
+  nav.top.scrolled .cta-nav{border-color:var(--ink);color:var(--ink)}
+  nav.top.scrolled .cta-nav:hover{background:var(--ink);color:var(--cream)}
+  nav .cta-nav .dot{width:6px;height:6px;border-radius:99px;background:var(--gold);animation:pulse 2s infinite}
+  nav.top.scrolled .cta-nav .dot{background:var(--clay)}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,107,75,.55)}70%{box-shadow:0 0 0 8px rgba(63,107,75,0)}100%{box-shadow:0 0 0 0 rgba(63,107,75,0)}}
   @media (max-width:900px){nav ul{display:none} nav.top{padding:14px 22px}}
 
-  /* ——— Hero ——— */
-  .hero{padding: 140px 0 100px;position:relative;background:var(--cream)}
-  .hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:end}
-  @media (max-width:960px){.hero .grid{grid-template-columns:1fr;gap:40px}.hero{padding-top:120px}}
-  .eyebrow{display:flex;align-items:center;gap:12px;color:var(--ink-2);margin-bottom:28px}
-  .eyebrow .bar{width:36px;height:1px;background:var(--clay)}
+  /* ——— Hero (video background) ——— */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:180px 0 120px;min-height:min(760px,92vh);
+    background:var(--ink);color:var(--cream);
+    display:flex;align-items:center;
+  }
+  .hero .hero-video{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    z-index:0;pointer-events:none;
+  }
+  .hero .hero-overlay{
+    position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:
+      linear-gradient(180deg, rgba(22,34,24,.55) 0%, rgba(22,34,24,.72) 60%, rgba(22,34,24,.88) 100%),
+      radial-gradient(ellipse at 30% 40%, rgba(63,107,75,.25), transparent 60%);
+  }
+  .hero > .container{position:relative;z-index:2;width:100%}
+  .hero .hero-content{max-width:860px}
+  @media (max-width:960px){.hero{padding:150px 0 90px;min-height:auto}}
+
+  .eyebrow{display:flex;align-items:center;gap:12px;color:rgba(251,251,247,.7);margin-bottom:28px}
+  .eyebrow .bar{width:36px;height:1px;background:var(--gold)}
+  .hero .eyebrow{color:rgba(251,251,247,.78)}
+  .hero .eyebrow .bar{background:var(--gold)}
   h1.display{
     font-family:'Fraunces',serif;font-weight:300;
     font-size:clamp(38px,5.3vw,78px);
-    line-height:1.05;letter-spacing:-.025em;margin:0;color:var(--ink);
+    line-height:1.05;letter-spacing:-.025em;margin:0;color:var(--cream);
+    text-shadow:0 2px 20px rgba(22,34,24,.35);
   }
-  h1.display em{font-style:italic;font-weight:300;color:var(--clay)}
+  h1.display em{font-style:italic;font-weight:300;color:var(--gold)}
   .hero .lede{
-    font-size:17px;line-height:1.6;color:var(--ink-2);max-width:520px;margin:32px 0 32px;
+    font-size:17px;line-height:1.6;color:rgba(251,251,247,.88);max-width:540px;margin:32px 0 36px;
+    text-shadow:0 1px 8px rgba(22,34,24,.4);
   }
+  .hero .lede strong{color:var(--cream);font-weight:500}
   .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
   .btn{
     display:inline-flex;align-items:center;gap:10px;padding:17px 28px;border-radius:999px;
@@ -95,23 +122,14 @@
   .btn .arrow{transition:transform .2s}
   .btn:hover .arrow{transform:translateX(3px)}
   .btn.big{padding:20px 34px;font-size:15px}
-  .hero .subcta{font-size:12px;color:var(--ink-2);margin-top:14px;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+  .hero .btn.primary{background:var(--cream);color:var(--ink);box-shadow:0 10px 30px -12px rgba(22,34,24,.5)}
+  .hero .btn.primary:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
+  .hero .subcta{font-size:12px;color:rgba(251,251,247,.72);margin-top:16px;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
 
-  .hero .portrait{
-    position:relative;aspect-ratio:4/5;width:100%;
-    background:linear-gradient(160deg,#3F6B4B 0%,#2D5138 45%,#1C3A26 100%);
-    border-radius:2px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(28,58,38,.55);
+  @media (prefers-reduced-motion: reduce){
+    .hero .hero-video{display:none}
+    .hero{background:var(--ink) url('assets/jhana-hero.jpg') center/cover no-repeat}
   }
-  .hero .portrait img.photo{
-    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;
-  }
-  .hero .portrait::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(22,34,24,.0) 55%, rgba(22,34,24,.45) 100%);
-    pointer-events:none;
-  }
-  .hero .portrait .pmeta{position:absolute;left:18px;top:18px;color:rgba(251,251,247,.95);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;z-index:2;text-shadow:0 1px 4px rgba(22,34,24,.6)}
-  .hero .portrait .pmeta2{position:absolute;right:18px;bottom:18px;color:rgba(251,251,247,.95);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;text-align:right;z-index:2;text-shadow:0 1px 4px rgba(22,34,24,.6)}
 
   /* ——— Ticker ——— */
   .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--cream);padding:16px 0}
@@ -384,34 +402,28 @@
   <a class="cta-nav" href="#precio"><span class="dot"></span> Reservar lugar</a>
 </nav>
 
-<!-- ———————————————————————————————————— 01 · HERO ———————————————————————————————————— -->
+<!-- ———————————————————————————————————— 01 · HERO (video background) ———————————————————————————————————— -->
 <header class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/jhana-hero.jpg" aria-hidden="true">
+    <source src="assets/hero-loop.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
-    <div class="grid">
-      <div>
-        <div class="eyebrow">
-          <span class="bar"></span>
-          <span class="mono">Expansión 10X · Con Jhana El Aridi · Coach de abundancia</span>
-        </div>
-        <h1 class="display">
-          Si sabes que viniste a <em>más</em>, pero algo invisible te frena — <em>este</em> es el camino que llevabas años buscando sin saberlo.
-        </h1>
-        <p class="lede">
-          <strong>Expansión 10X</strong> — un programa de 12 semanas para sanar tu relación con el dinero, reprogramar tu merecimiento y construir la estructura financiera real que te compra la libertad.
-        </p>
-        <div class="ctas">
-          <a class="btn primary big" href="#precio">Quiero mi lugar en Expansión 10X <span class="arrow">→</span></a>
-        </div>
-        <div class="subcta">Cupos limitados · Escríbenos para conocer la próxima apertura · Inversión desde $2,500 USD</div>
+    <div class="hero-content">
+      <div class="eyebrow">
+        <span class="bar"></span>
+        <span class="mono">Expansión 10X · Con Jhana El Aridi · Coach de abundancia</span>
       </div>
-
-      <div style="position:relative">
-        <div class="portrait">
-          <img class="photo" src="assets/jhana-hero.jpg" alt="Jhana El Aridi" loading="eager" fetchpriority="high" />
-          <div class="pmeta">Jhana · Expansión 10X</div>
-          <div class="pmeta2">Caracas → Mundo</div>
-        </div>
+      <h1 class="display">
+        Si sabes que viniste a <em>más</em>, pero algo invisible te frena — <em>este</em> es el camino que llevabas años buscando sin saberlo.
+      </h1>
+      <p class="lede">
+        <strong>Expansión 10X</strong> — un programa de 12 semanas para sanar tu relación con el dinero, reprogramar tu merecimiento y construir la estructura financiera real que te compra la libertad.
+      </p>
+      <div class="ctas">
+        <a class="btn primary big" href="#precio">Quiero mi lugar en Expansión 10X <span class="arrow">→</span></a>
       </div>
+      <div class="subcta">Cupos limitados · Escríbenos para conocer la próxima apertura · Inversión desde $2,500 USD</div>
     </div>
   </div>
 </header>
