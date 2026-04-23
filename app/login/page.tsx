@@ -33,8 +33,8 @@ export default function LoginPage() {
             de <em>vuelta</em>.
           </h1>
           <p className="sub">
-            Selecciona cómo entras hoy al portal. Cada rol te lleva a tu
-            espacio.
+            Ingresa con el correo y la contraseña que registraste. Tu portal
+            se abre según el plan que tienes activo.
           </p>
 
           <LoginForm />
