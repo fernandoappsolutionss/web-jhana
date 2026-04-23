@@ -102,15 +102,16 @@
     background:linear-gradient(160deg,#3F6B4B 0%,#2D5138 45%,#1C3A26 100%);
     border-radius:2px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(28,58,38,.55);
   }
-  .hero .portrait::before{
-    content:"";position:absolute;inset:0;
-    background-image:repeating-linear-gradient(135deg,rgba(244,236,222,.08) 0 2px,transparent 2px 22px);
-    mix-blend-mode:overlay;
+  .hero .portrait img.photo{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;
   }
-  .hero .portrait .sil{position:absolute;inset:auto 0 0 0;height:86%;display:flex;align-items:flex-end;justify-content:center}
-  .hero .portrait .sil svg{width:78%;height:100%;filter:drop-shadow(0 20px 20px rgba(0,0,0,.25))}
-  .hero .portrait .pmeta{position:absolute;left:18px;top:18px;color:rgba(244,236,222,.8);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase}
-  .hero .portrait .pmeta2{position:absolute;right:18px;bottom:18px;color:rgba(244,236,222,.8);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;text-align:right}
+  .hero .portrait::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(22,34,24,.0) 55%, rgba(22,34,24,.45) 100%);
+    pointer-events:none;
+  }
+  .hero .portrait .pmeta{position:absolute;left:18px;top:18px;color:rgba(251,251,247,.95);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;z-index:2;text-shadow:0 1px 4px rgba(22,34,24,.6)}
+  .hero .portrait .pmeta2{position:absolute;right:18px;bottom:18px;color:rgba(251,251,247,.95);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;text-align:right;z-index:2;text-shadow:0 1px 4px rgba(22,34,24,.6)}
 
   /* ——— Ticker ——— */
   .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--cream);padding:16px 0}
@@ -164,10 +165,9 @@
     border-radius:2px;position:relative;overflow:hidden;
     box-shadow:0 20px 50px -20px rgba(28,58,38,.4);
   }
-  .story .photo::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(244,236,222,.08) 0 2px,transparent 2px 22px);mix-blend-mode:overlay}
-  .story .photo .sil{position:absolute;inset:auto 0 0 0;height:84%;display:flex;align-items:flex-end;justify-content:center}
-  .story .photo .sil svg{width:80%;height:100%}
-  .story .photo .meta{position:absolute;left:16px;top:16px;color:rgba(244,236,222,.8);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase}
+  .story .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+  .story .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,34,24,0) 60%,rgba(22,34,24,.35) 100%);pointer-events:none}
+  .story .photo .meta{position:absolute;left:16px;top:16px;color:rgba(251,251,247,.95);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;z-index:2;text-shadow:0 1px 4px rgba(22,34,24,.6)}
   .story .copy h3{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(30px,3.6vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 28px}
   .story .copy h3 em{font-style:italic;color:var(--clay)}
   .story .copy p{font-size:16px;line-height:1.7;color:var(--ink-2);margin:0 0 16px}
@@ -393,7 +393,7 @@
           <span class="mono">Expansión 10X · Con Jhana El Aridi · Cohortes 2026</span>
         </div>
         <h1 class="display">
-          Si sabés que viniste a <em>más</em>, pero algo invisible te frena — <em>este</em> es el camino que llevabas años buscando sin saberlo.
+          Si sabes que viniste a <em>más</em>, pero algo invisible te frena — <em>este</em> es el camino que llevabas años buscando sin saberlo.
         </h1>
         <p class="lede">
           <strong>Expansión 10X</strong> — un programa de 12 semanas para sanar tu relación con el dinero, reprogramar tu merecimiento y construir la estructura financiera real que te compra la libertad.
@@ -405,22 +405,10 @@
       </div>
 
       <div style="position:relative">
-        <div class="portrait" role="img" aria-label="Retrato de Jhana El Aridi">
+        <div class="portrait">
+          <img class="photo" src="assets/jhana-1.jpg" alt="Jhana El Aridi" loading="eager" fetchpriority="high" />
           <div class="pmeta">Jhana · Expansión 10X</div>
           <div class="pmeta2">Caracas → Mundo</div>
-          <div class="sil" aria-hidden="true">
-            <svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMax meet">
-              <defs>
-                <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#F4ECDE" stop-opacity=".3"/>
-                  <stop offset="1" stop-color="#F4ECDE" stop-opacity=".08"/>
-                </linearGradient>
-              </defs>
-              <ellipse cx="100" cy="58" rx="34" ry="38" fill="url(#g1)"/>
-              <path d="M40 260 C 42 180, 60 150, 100 148 C 140 150, 158 180, 160 260 Z" fill="url(#g1)"/>
-              <path d="M100 96 C 88 110, 85 126, 88 148 L 112 148 C 115 126, 112 110, 100 96 Z" fill="url(#g1)" opacity=".7"/>
-            </svg>
-          </div>
         </div>
       </div>
     </div>
@@ -439,13 +427,13 @@
 <section class="sec reveal">
   <div class="container-narrow">
     <div class="s-head">
-      <span class="s-idx">— 01 / Probablemente esta seas vos</span>
+      <span class="s-idx">— 01 / Probablemente esta seas tú</span>
     </div>
     <div class="prose">
-      <p>Probablemente llegaste acá porque sentís que <strong>venís haciendo todo bien</strong> y sin embargo no ves los resultados que deberías estar viendo.</p>
-      <p>Trabajás. Te esforzás. Estudiás. Aprendés. Y sin embargo <strong>el dinero no se queda con vos</strong>. O cuando llega, te genera más ansiedad que alivio. Cobrás menos de lo que sabés que valés. Das descuentos que nadie te pidió. Te sentís culpable cuando tenés algo bueno. Te hacés pequeña para que otros no se sientan incómodos.</p>
-      <p>Y mientras tanto ves a otras personas — no necesariamente más talentosas que vos — vivir con una soltura financiera que vos no lográs. Y te preguntás, silenciosamente: <em>¿qué tienen ellas que yo no tengo?</em></p>
-      <p>La respuesta no es lo que creés. No es más educación financiera. No es trabajar más horas. No es más disciplina. <em>Es otra cosa.</em> Algo mucho más profundo. Y en este programa lo vamos a desarmar pieza por pieza.</p>
+      <p>Probablemente llegaste aquí porque sientes que <strong>vienes haciendo todo bien</strong> y sin embargo no ves los resultados que deberías estar viendo.</p>
+      <p>Trabajas. Te esfuerzas. Estudias. Aprendes. Y sin embargo <strong>el dinero no se queda contigo</strong>. O cuando llega, te genera más ansiedad que alivio. Cobras menos de lo que sabes que vales. Das descuentos que nadie te pidió. Te sientes culpable cuando tienes algo bueno. Te haces pequeña para que otros no se sientan incómodos.</p>
+      <p>Y mientras tanto ves a otras personas — no necesariamente más talentosas que tú — vivir con una soltura financiera que tú no logras. Y te preguntas, silenciosamente: <em>¿qué tienen ellas que yo no tengo?</em></p>
+      <p>La respuesta no es lo que crees. No es más educación financiera. No es trabajar más horas. No es más disciplina. <em>Es otra cosa.</em> Algo mucho más profundo. Y en este programa lo vamos a desarmar pieza por pieza.</p>
     </div>
   </div>
 </section>
@@ -460,11 +448,11 @@
     <div class="truth-card">
       <span class="truth-pill">Neurociencia · Sistema Reticular Activador</span>
       <h3>Tu cerebro tiene un filtro que decide qué oportunidades <em>ves</em> y cuáles <em>no</em>.</h3>
-      <p>Y ese filtro está calibrado según quién creés que sos. Si inconscientemente creés que <em>"no sos buena con el dinero"</em>, tu cerebro literalmente <strong>descarta las oportunidades de ingresos</strong> antes de que lleguen a tu conciencia. No porque no estén — están ahí todo el tiempo — sino porque tu filtro las tacha como "no para mí".</p>
+      <p>Y ese filtro está calibrado según quién crees que eres. Si inconscientemente crees que <em>"no eres buena con el dinero"</em>, tu cerebro literalmente <strong>descarta las oportunidades de ingresos</strong> antes de que lleguen a tu conciencia. No porque no estén — están ahí todo el tiempo — sino porque tu filtro las tacha como "no para mí".</p>
       <p>Eso se llama <strong>Sistema Reticular Activador</strong>. Y es neurociencia pura.</p>
       <p>Por eso dos mujeres con el mismo talento, la misma formación, la misma industria, tienen vidas radicalmente distintas. <em>No es suerte. Es identidad.</em> Una cree que merece, la otra cree que no. Y el cerebro obedece a esa creencia con una fidelidad total.</p>
-      <p>Ahora — y esto es lo más doloroso — la identidad que cargás hoy <strong>no la elegiste vos</strong>. Te la construyeron en la infancia. Etiquetas que te pusieron. Creencias sobre el dinero que escuchaste en tu casa antes de los 7 años. Un linaje de escasez que viene de generaciones. Emociones densas — culpa, vergüenza, miedo — que se grabaron sin que te dieras cuenta.</p>
-      <p>Y si no las desarmás, <strong>vas a repetir el mismo resultado toda tu vida</strong>. Por más que te esfuerces. Por más cursos que tomes. Por más libros que leas.</p>
+      <p>Ahora — y esto es lo más doloroso — la identidad que cargas hoy <strong>no la elegiste tú</strong>. Te la construyeron en la infancia. Etiquetas que te pusieron. Creencias sobre el dinero que escuchaste en tu casa antes de los 7 años. Un linaje de escasez que viene de generaciones. Emociones densas — culpa, vergüenza, miedo — que se grabaron sin que te dieras cuenta.</p>
+      <p>Y si no las desarmas, <strong>vas a repetir el mismo resultado toda tu vida</strong>. Por más que te esfuerces. Por más cursos que tomes. Por más libros que leas.</p>
       <p>Porque la información no reprograma el subconsciente. La información no mueve la identidad. <em>Solo un proceso estructurado, emocional y de acción real lo hace.</em></p>
       <p><strong>Y ese proceso es lo que vas a vivir en Expansión 10X.</strong></p>
     </div>
@@ -479,20 +467,9 @@
       <h2>De la carencia emocional<br/>a una vida <em>expansiva</em>.</h2>
     </div>
     <div class="story">
-      <div class="photo" role="img" aria-label="Jhana El Aridi">
+      <div class="photo">
+        <img src="assets/jhana-2.jpg" alt="Jhana El Aridi — retrato íntimo" loading="lazy" />
         <div class="meta">Jhana El Aridi · Coach</div>
-        <div class="sil" aria-hidden="true">
-          <svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMax meet">
-            <defs>
-              <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#F4ECDE" stop-opacity=".32"/>
-                <stop offset="1" stop-color="#F4ECDE" stop-opacity=".08"/>
-              </linearGradient>
-            </defs>
-            <ellipse cx="100" cy="62" rx="32" ry="36" fill="url(#g2)"/>
-            <path d="M44 260 C 46 182, 62 152, 100 150 C 138 152, 154 182, 156 260 Z" fill="url(#g2)"/>
-          </svg>
-        </div>
       </div>
       <div class="copy">
         <h3>Soy <em>Jhana</em> — y durante años yo también creí que el problema era mío.</h3>
@@ -513,29 +490,29 @@
   <div class="container">
     <div class="s-head">
       <span class="s-idx">— 04 / Selección honesta</span>
-      <h2>¿Este programa es <em>para vos</em>?</h2>
-      <p class="kicker">Prefiero ser clara antes que venderte algo que no es para vos. Leé las dos columnas con honestidad.</p>
+      <h2>¿Este programa es <em>para ti</em>?</h2>
+      <p class="kicker">Prefiero ser clara antes que venderte algo que no es para ti. Lee las dos columnas con honestidad.</p>
     </div>
     <div class="foryou-grid">
       <div class="fy-col yes">
-        <h4>Es para vos si…</h4>
+        <h4>Es para ti si…</h4>
         <ul>
-          <li><span class="mark">✓</span><span>Sabés que tenés mucho más potencial del que estás expresando hoy.</span></li>
-          <li><span class="mark">✓</span><span>Tenés una relación tensa con el dinero — culpa, miedo, vergüenza, ansiedad — que ya no querés seguir cargando.</span></li>
-          <li><span class="mark">✓</span><span>Te sentís estancada en un nivel de ingresos que sabés que está por debajo de lo que podés ganar.</span></li>
-          <li><span class="mark">✓</span><span>Sos profesional, emprendedora, líder o persona con mentalidad de crecimiento y buscás resultados reales: más claridad, más dinero, más paz interna.</span></li>
-          <li><span class="mark">✓</span><span>Estás cansada de vivir desde el "deber ser", la lealtad familiar o el sacrificio — y querés empezar a vivir desde el merecimiento y la elección.</span></li>
-          <li><span class="mark">✓</span><span>Ya probaste otras cosas — terapia, cursos, libros — y sentís que llegaste a un techo que no sabés cómo romper.</span></li>
+          <li><span class="mark">✓</span><span>Sabes que tienes mucho más potencial del que estás expresando hoy.</span></li>
+          <li><span class="mark">✓</span><span>Tienes una relación tensa con el dinero — culpa, miedo, vergüenza, ansiedad — que ya no quieres seguir cargando.</span></li>
+          <li><span class="mark">✓</span><span>Te sientes estancada en un nivel de ingresos que sabes que está por debajo de lo que puedes ganar.</span></li>
+          <li><span class="mark">✓</span><span>Eres profesional, emprendedora, líder o persona con mentalidad de crecimiento y buscas resultados reales: más claridad, más dinero, más paz interna.</span></li>
+          <li><span class="mark">✓</span><span>Estás cansada de vivir desde el "deber ser", la lealtad familiar o el sacrificio — y quieres empezar a vivir desde el merecimiento y la elección.</span></li>
+          <li><span class="mark">✓</span><span>Ya probaste otras cosas — terapia, cursos, libros — y sientes que llegaste a un techo que no sabes cómo romper.</span></li>
           <li><span class="mark">✓</span><span>Estás dispuesta a dedicar 4-6 horas por semana durante 3 meses para hacer un trabajo real.</span></li>
         </ul>
       </div>
       <div class="fy-col no">
-        <h4>No es para vos si…</h4>
+        <h4>No es para ti si…</h4>
         <ul>
-          <li><span class="mark">✗</span><span>Buscás una fórmula para hacerte rica rápido sin trabajar internamente.</span></li>
+          <li><span class="mark">✗</span><span>Buscas una fórmula para hacerte rica rápido sin trabajar internamente.</span></li>
           <li><span class="mark">✗</span><span>No estás dispuesta a mirar tus heridas emocionales y familiares con honestidad.</span></li>
-          <li><span class="mark">✗</span><span>Querés soluciones mágicas, afirmaciones vacías o "pensamiento positivo" sin método.</span></li>
-          <li><span class="mark">✗</span><span>No podés comprometer el tiempo semanal que el programa requiere.</span></li>
+          <li><span class="mark">✗</span><span>Quieres soluciones mágicas, afirmaciones vacías o "pensamiento positivo" sin método.</span></li>
+          <li><span class="mark">✗</span><span>No puedes comprometer el tiempo semanal que el programa requiere.</span></li>
           <li><span class="mark">✗</span><span>Todavía no llegaste al punto de estar cansada del patrón — y decidida a cambiarlo.</span></li>
         </ul>
       </div>
@@ -549,7 +526,7 @@
     <div class="s-head">
       <span class="s-idx">— 05 / El método</span>
       <h2>El método: <em>3 fases</em>,<br/>12 semanas, una transformación completa.</h2>
-      <p class="kicker">Cada fase tiene su propio objetivo. Cada semana construye sobre la anterior. Cuando salís de la fase 3, la persona que entró ya no existe.</p>
+      <p class="kicker">Cada fase tiene su propio objetivo. Cada semana construye sobre la anterior. Cuando sales de la fase 3, la persona que entró ya no existe.</p>
     </div>
     <div class="phases">
       <div class="phase">
@@ -565,7 +542,7 @@
           <li><span class="wk">SEM 04</span>Merecer sin sacrificio</li>
         </ul>
         <div class="salida">
-          <span class="mono">Salís con</span>
+          <span class="mono">Sales con</span>
           Tu Autobiografía Pre-Expansión — documento que consolida quién fuiste, qué te programaron y qué cargaste que no era tuyo.
         </div>
       </div>
@@ -575,7 +552,7 @@
         <div class="ph-num">02</div>
         <h4>Reprogramación — La Nueva Versión</h4>
         <div class="weeks">Estructura financiera real</div>
-        <p class="arc"><strong>Arco:</strong> construís el sistema financiero que sostiene la nueva mentalidad. La fase que casi ningún programa de abundancia tiene.</p>
+        <p class="arc"><strong>Arco:</strong> construyes el sistema financiero que sostiene la nueva mentalidad. La fase que casi ningún programa de abundancia tiene.</p>
         <ul class="modules">
           <li><span class="wk">SEM 05</span>El techo invisible y cómo moverlo</li>
           <li><span class="wk">SEM 06</span>¿Qué piensas del dinero? · Masterclass en vivo</li>
@@ -583,7 +560,7 @@
           <li><span class="wk">SEM 08</span>Tu dinero tiene 3 vidas — arquitectura completa</li>
         </ul>
         <div class="salida">
-          <span class="mono">Salís con</span>
+          <span class="mono">Sales con</span>
           Tu Plan Financiero Personal Expansión — Fondo de Libertad automatizado, las 3 Vidas del Dinero y la calculadora de tu libertad con cifras específicas.
         </div>
       </div>
@@ -593,7 +570,7 @@
         <div class="ph-num">03</div>
         <h4>Expansión 10X — Salir al mundo</h4>
         <div class="weeks">A jugar grande</div>
-        <p class="arc"><strong>Arco:</strong> rediseñás oferta, subís precios, entrenás ventas, armás plan de 90 días con métricas. Y cerrás con el Retiro de Graduación.</p>
+        <p class="arc"><strong>Arco:</strong> rediseñas oferta, subes precios, entrenas ventas, armas plan de 90 días con métricas. Y cierras con el Retiro de Graduación.</p>
         <ul class="modules">
           <li><span class="wk">SEM 09</span>El valor de lo que das · Masterclass en vivo</li>
           <li><span class="wk">SEM 10</span>La caza de los 100 NO</li>
@@ -601,7 +578,7 @@
           <li><span class="wk">SEM 12</span>Vision Board y Retiro de Graduación</li>
         </ul>
         <div class="salida">
-          <span class="mono">Salís con</span>
+          <span class="mono">Sales con</span>
           Tu Autobiografía Post-Expansión — identidad nueva, estructura financiera, oferta rediseñada, plan 10X y Vision Board.
         </div>
       </div>
@@ -614,7 +591,7 @@
   <div class="container">
     <div class="s-head">
       <span class="s-idx">— 06 / Qué incluye tu inversión</span>
-      <h2>Esto es <em>todo</em> lo que recibís cuando entrás a Expansión 10X.</h2>
+      <h2>Esto es <em>todo</em> lo que recibes cuando entras a Expansión 10X.</h2>
     </div>
 
     <div class="incl-group">
@@ -665,7 +642,7 @@
       <div class="incl-grid">
         <div class="incl-item"><div class="ico">🎁</div><div class="body"><strong>Comunidad Alumni de por vida</strong><span>Reencuentros trimestrales · masterclasses anuales con Jhana · descuentos en cohortes futuras.</span></div></div>
         <div class="incl-item"><div class="ico">🎁</div><div class="body"><strong>Masterclass bonus: "Las 8 mentiras que te dijeron sobre el dinero"</strong><span>Adaptación profunda al mercado latino.</span></div></div>
-        <div class="incl-item"><div class="ico">🎁</div><div class="body"><strong>20% de descuento para certificarte como Coach Expansión</strong><span>Al completar el programa, si querés dedicarte a acompañar a otras.</span></div></div>
+        <div class="incl-item"><div class="ico">🎁</div><div class="body"><strong>20% de descuento para certificarte como Coach Expansión</strong><span>Al completar el programa, si quieres dedicarte a acompañar a otras.</span></div></div>
       </div>
     </div>
   </div>
@@ -741,14 +718,14 @@
   <div class="container">
     <div class="s-head" style="text-align:center;margin-left:auto;margin-right:auto">
       <span class="s-idx">— 09 / Opciones de pago</span>
-      <h2>Elegí tu <em>forma</em> de pago.</h2>
+      <h2>Elige tu <em>forma</em> de pago.</h2>
     </div>
     <div class="pay-grid">
       <div class="pay">
         <span class="pay-label">Opción 1 · Pago único</span>
         <div class="pay-amount">$2,500<em>USD</em></div>
         <div class="pay-total">Un solo pago · Ahorro del 10%</div>
-        <p class="pay-sub">La forma más eficiente. Un solo pago y listo — empezás el programa sin cuotas pendientes.</p>
+        <p class="pay-sub">La forma más eficiente. Un solo pago y listo — empiezas el programa sin cuotas pendientes.</p>
         <a class="btn dark" href="#contacto">Quiero pagar hoy <span class="arrow">→</span></a>
       </div>
 
@@ -802,9 +779,9 @@
       <div>
         <span class="s-idx" style="color:var(--earth)">— 10 / Garantía de compromiso mutuo</span>
         <h3>Garantía de <em>compromiso mutuo</em>. 14 días.</h3>
-        <p>Confío plenamente en el método. Vos, confiá en el compromiso.</p>
-        <p>Si en los primeros 14 días del programa completás las primeras 2 semanas <strong>con todos los ejercicios entregados</strong> y honestamente sentís que Expansión 10X no es para vos — te devuelvo el 100% de tu inversión. Sin preguntas incómodas. Sin culpas.</p>
-        <p>La condición es simple: <strong>tenés que haber hecho el trabajo</strong>. No "ver los videos". Hacer los ejercicios, entregar las Acciones Semilla, estar presente en tu sesión 1:1. Porque el método funciona cuando vos funcionás — y esa es la garantía que yo no puedo hacer sola.</p>
+        <p>Confío plenamente en el método. Tú, confía en el compromiso.</p>
+        <p>Si en los primeros 14 días del programa completas las primeras 2 semanas <strong>con todos los ejercicios entregados</strong> y honestamente sientes que Expansión 10X no es para ti — te devuelvo el 100% de tu inversión. Sin preguntas incómodas. Sin culpas.</p>
+        <p>La condición es simple: <strong>tienes que haber hecho el trabajo</strong>. No "ver los videos". Hacer los ejercicios, entregar las Acciones Semilla, estar presente en tu sesión 1:1. Porque el método funciona cuando tú funcionas — y esa es la garantía que yo no puedo hacer sola.</p>
         <div class="sig">— Jhana</div>
       </div>
     </div>
@@ -844,7 +821,7 @@
     <div class="faq-list">
       <details class="faq">
         <summary>¿Qué pasa si no puedo asistir a las clases en vivo?<span class="plus">+</span></summary>
-        <p>Todas las masterclasses y lives se graban y quedan disponibles de por vida en la plataforma. Podés hacerlas a tu ritmo. Sin embargo, te recomendamos conectar al menos al <strong>60% en vivo</strong> — la energía grupal no se reemplaza con la grabación.</p>
+        <p>Todas las masterclasses y lives se graban y quedan disponibles de por vida en la plataforma. Puedes hacerlas a tu ritmo. Sin embargo, te recomendamos conectar al menos al <strong>60% en vivo</strong> — la energía grupal no se reemplaza con la grabación.</p>
       </details>
       <details class="faq">
         <summary>¿Es solo para mujeres?<span class="plus">+</span></summary>
@@ -852,7 +829,7 @@
       </details>
       <details class="faq">
         <summary>Soy emprendedora / empleada / profesional independiente. ¿Funciona igual para mi perfil?<span class="plus">+</span></summary>
-        <p>Sí. El método es independiente de tu fuente de ingresos. La estructura financiera (Fondo de Libertad, 3 Vidas) funciona igual para empleada que para emprendedora. La parte de oferta/precios en Fase 3 se adapta: si sos empleada trabajás en pedido de aumento y propuestas internas; si sos emprendedora trabajás en oferta externa.</p>
+        <p>Sí. El método es independiente de tu fuente de ingresos. La estructura financiera (Fondo de Libertad, 3 Vidas) funciona igual para empleada que para emprendedora. La parte de oferta/precios en Fase 3 se adapta: si eres empleada trabajas en pedido de aumento y propuestas internas; si eres emprendedora trabajas en oferta externa.</p>
       </details>
       <details class="faq">
         <summary>¿Y si vivo en un país con moneda débil o restricciones (Venezuela, Argentina)?<span class="plus">+</span></summary>
@@ -868,15 +845,15 @@
       </details>
       <details class="faq">
         <summary>¿Qué pasa si ya hice otros programas de abundancia?<span class="plus">+</span></summary>
-        <p>Expansión 10X es probablemente distinto a todos los que hiciste. La mayoría de programas de abundancia se quedan en la parte emocional. Acá vamos desde lo emocional hasta la automatización real del Fondo de Libertad, la estructura de las 3 Vidas y el Plan 10X con métricas. Muchas de nuestras alumnas vienen de otros cursos y nos dicen: <em>"por fin un programa que baja la teoría al dinero real"</em>.</p>
+        <p>Expansión 10X es probablemente distinto a todos los que hiciste. La mayoría de programas de abundancia se quedan en la parte emocional. Aquí vamos desde lo emocional hasta la automatización real del Fondo de Libertad, la estructura de las 3 Vidas y el Plan 10X con métricas. Muchas de nuestras alumnas vienen de otros cursos y nos dicen: <em>"por fin un programa que baja la teoría al dinero real"</em>.</p>
       </details>
       <details class="faq">
         <summary>¿Puedo hablar con alguien antes de decidir?<span class="plus">+</span></summary>
-        <p>Sí. Podés <a href="#contacto" style="color:var(--clay);border-bottom:1px solid var(--clay)">agendar una llamada de 20 minutos</a> con nuestro equipo para resolver dudas específicas y evaluar si el programa es para vos.</p>
+        <p>Sí. Puedes <a href="#contacto" style="color:var(--clay);border-bottom:1px solid var(--clay)">agendar una llamada de 20 minutos</a> con nuestro equipo para resolver dudas específicas y evaluar si el programa es para ti.</p>
       </details>
       <details class="faq">
         <summary>¿Cuándo es el próximo inicio?<span class="plus">+</span></summary>
-        <p>La próxima cohorte inicia el <strong>[FECHA]</strong>. Si no alcanzás a entrar, la siguiente es en <strong>[FECHA FUTURA]</strong> — pero a precio regular, sin las condiciones especiales de esta cohorte.</p>
+        <p>La próxima cohorte inicia el <strong>[FECHA]</strong>. Si no alcanzas a entrar, la siguiente es en <strong>[FECHA FUTURA]</strong> — pero a precio regular, sin las condiciones especiales de esta cohorte.</p>
       </details>
       <details class="faq">
         <summary>¿Qué diferencia esto del programa 1:1 con Jhana?<span class="plus">+</span></summary>
@@ -893,15 +870,15 @@
       <span class="s-idx" style="color:var(--gold)">— 13 / Lo que decidas hoy</span>
       <h2>Lo que decidas hoy <em>importa</em>.</h2>
       <p>Probablemente tu mente está haciendo ruido en este momento. Buscando razones para postergar. <em>"Y si no es el momento", "y si no funciona", "mejor el próximo mes"</em>.</p>
-      <p>Escuchame esto.</p>
-      <p><strong>Ese ruido es exactamente la programación que te trajo acá.</strong> El mismo miedo que te ha hecho no cobrar lo que valés, no pedir lo que merecés, no expandirte hasta donde podés llegar.</p>
-      <p>Si le hacés caso hoy, le vas a hacer caso mañana. Y dentro de un año vas a estar leyendo otra página como esta, prometiéndote otra vez <em>"el próximo"</em>.</p>
-      <p>Pero si hoy decidís <strong>ponerte en primer lugar</strong> — aunque sea con tres cuotas, aunque sea el primer paso — <em>algo cambia</em>. No por el programa. Por la declaración que implica. Porque el dinero que pagás hoy no es por clases. Es por vos. Por declararte a vos misma que ya te priorizás.</p>
+      <p>Escúchame esto.</p>
+      <p><strong>Ese ruido es exactamente la programación que te trajo aquí.</strong> El mismo miedo que te ha hecho no cobrar lo que vales, no pedir lo que mereces, no expandirte hasta donde puedes llegar.</p>
+      <p>Si le haces caso hoy, le vas a hacer caso mañana. Y dentro de un año vas a estar leyendo otra página como esta, prometiéndote otra vez <em>"el próximo"</em>.</p>
+      <p>Pero si hoy decides <strong>ponerte en primer lugar</strong> — aunque sea con tres cuotas, aunque sea el primer paso — <em>algo cambia</em>. No por el programa. Por la declaración que implica. Porque el dinero que pagas hoy no es por clases. Es por ti. Por declararte a ti misma que ya te priorizas.</p>
       <p style="text-align:center;font-family:'Fraunces',serif;font-size:26px;line-height:1.3;color:var(--cream);font-style:italic;margin-top:28px"><strong>Esa declaración es el principio del despertar.</strong></p>
       <div class="final-cta">
         <a class="btn primary big" href="#precio">Reservo mi lugar en Expansión 10X <span class="arrow">→</span></a>
       </div>
-      <div class="whisper">Tu Yo de dentro de 5 años ya sabe qué vas a decidir.<br/>Demostrale que era la decisión correcta.</div>
+      <div class="whisper">Tu Yo de dentro de 5 años ya sabe qué vas a decidir.<br/>Demuéstrale que era la decisión correcta.</div>
     </div>
   </div>
 </section>
