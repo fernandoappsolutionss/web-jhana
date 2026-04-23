@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Run all .sql files in ./migrations against the Neon database,
- * in filename order. Safe to re-run: each file uses IF NOT EXISTS.
+ * Run every .sql file in ./migrations against Neon, in filename order.
+ * Each file can contain multiple statements.
  *
  * Usage:
  *   DATABASE_URL=postgres://... node scripts/migrate.mjs
@@ -9,46 +9,54 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { neon } from '@neondatabase/serverless';
+import { Pool, neonConfig } from '@neondatabase/serverless';
+import ws from 'ws';
+
+// In Node we must provide a WebSocket implementation for the Pool
+neonConfig.webSocketConstructor = ws;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const MIGRATIONS_DIR = resolve(__dirname, '..', 'migrations');
 
-const url =
+const connectionString =
   process.env.DATABASE_URL ||
   process.env.POSTGRES_URL ||
   process.env.POSTGRES_PRISMA_URL ||
-  process.env.DATABASE_URL_UNPOOLED;
+  process.env.DATABASE_URL_UNPOOLED ||
+  process.env.POSTGRES_URL_NON_POOLING;
 
-if (!url) {
+if (!connectionString) {
   console.error('✗ DATABASE_URL not set');
   process.exit(1);
 }
 
-const sql = neon(url);
-const files = readdirSync(MIGRATIONS_DIR).filter((f) => f.endsWith('.sql')).sort();
+const pool = new Pool({ connectionString });
+
+const files = readdirSync(MIGRATIONS_DIR)
+  .filter((f) => f.endsWith('.sql'))
+  .sort();
 
 if (!files.length) {
   console.log('No migration files found.');
+  await pool.end();
   process.exit(0);
 }
 
+let failed = false;
 for (const file of files) {
   const path = resolve(MIGRATIONS_DIR, file);
   const body = readFileSync(path, 'utf-8');
   process.stdout.write(`▸ ${file} … `);
   try {
-    // neon() accepts parameterized queries via tagged templates; for raw
-    // migration SQL we use the .query() escape hatch via sql.unsafe or
-    // execute each statement. The serverless driver exposes the function
-    // itself — pass the raw text.
-    await sql.query(body);
+    await pool.query(body);
     console.log('ok');
   } catch (err) {
     console.log('FAILED');
     console.error(err);
-    process.exit(1);
+    failed = true;
+    break;
   }
 }
 
-console.log('✓ All migrations applied.');
+await pool.end();
+process.exit(failed ? 1 : 0);

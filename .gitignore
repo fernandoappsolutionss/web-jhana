@@ -30,3 +30,4 @@ design2/
 # Misc
 .turbo
 *.log
+.env*.local
