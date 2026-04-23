@@ -355,9 +355,10 @@
   footer ul{list-style:none;margin:0;padding:0}
   footer li{margin-bottom:10px;font-size:14px;color:rgba(244,236,222,.72)}
   footer li a:hover{color:var(--cream)}
-  footer .bigname{display:flex;flex-direction:column;align-items:flex-start;line-height:.85;margin:0;overflow:hidden}
-  footer .bigname .script{font-family:'Kaushan Script',cursive;font-size:clamp(84px,16vw,220px);line-height:.9;color:var(--cream);opacity:.95;letter-spacing:-.01em;white-space:nowrap}
-  footer .bigname .sub{font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(14px,2vw,24px);letter-spacing:.45em;color:var(--cream);opacity:.85;margin-top:6px;text-indent:.45em}
+  footer .bigname{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:.9;margin:40px 0 50px;overflow:hidden;text-align:center}
+  footer .bigname .script{font-family:'Kaushan Script',cursive;font-size:clamp(64px,11vw,140px);line-height:1;color:var(--cream);opacity:.96;letter-spacing:-.01em;white-space:nowrap;display:inline-block}
+  footer .bigname .sub{font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(16px,2.2vw,28px);letter-spacing:.5em;color:var(--cream);opacity:.88;margin-top:-4px;text-indent:.5em}
+  @media (max-width:720px){footer .bigname{margin:28px 0 36px}footer .bigname .sub{font-size:14px;letter-spacing:.4em}}
   footer .legal{display:flex;justify-content:space-between;border-top:1px solid rgba(244,236,222,.12);padding-top:22px;font-size:12px;color:rgba(244,236,222,.5);flex-wrap:wrap;gap:10px;margin-top:30px}
 
   /* ——— Reveal animation ——— */
