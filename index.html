@@ -3,378 +3,363 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Jhana El Aridi — Abundancia y relación con el dinero</title>
+<title>Expansión 10X — Jhana El Aridi · Sana tu relación con el dinero</title>
+<meta name="description" content="Programa de 12 semanas con Jhana El Aridi para sanar tu relación con el dinero, reprogramar tu merecimiento y construir la estructura financiera que te compra la libertad." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   /* ——— Design system ——— */
   :root{
-    --cream: #FBFBF7;   /* blanco cálido */
-    --cream-2: #F0F2EA; /* blanco tintado de verde */
+    --cream: #FBFBF7;
+    --cream-2: #F0F2EA;
     --sand:  #DFE6D5;
-    --clay:  #3F6B4B;   /* verde primario */
+    --clay:  #3F6B4B;
     --clay-d:#2D5138;
     --brick: #1C3A26;
-    --ink:   #162218;   /* negro verdoso */
+    --ink:   #162218;
     --ink-2: #455549;
-    --gold:  #7C9C6E;   /* verde claro acento */
+    --gold:  #7C9C6E;
+    --earth: #8A6A43;      /* tierra cálida para secciones de garantía / emocionales */
+    --earth-l:#D8C9A8;
+    --alert: #C66B3D;
     --line:  rgba(22,34,24,.12);
     --radius: 2px;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+  html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
   body{overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
   .serif{font-family:'Fraunces',serif;font-weight:300;letter-spacing:-.015em}
   .mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
-  .container{max-width:1320px;margin:0 auto;padding:0 40px}
+  .container{max-width:1280px;margin:0 auto;padding:0 40px}
   @media (max-width:720px){.container{padding:0 22px}}
+  .container-narrow{max-width:880px;margin:0 auto;padding:0 40px}
+  @media (max-width:720px){.container-narrow{padding:0 22px}}
 
   /* ——— Nav ——— */
   nav.top{
     position:fixed;top:0;left:0;right:0;z-index:50;
     display:flex;align-items:center;justify-content:space-between;
-    padding:22px 40px;
-    background:linear-gradient(180deg,rgba(251,251,247,.9),rgba(251,251,247,0));
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    padding:18px 40px;
+    background:linear-gradient(180deg,rgba(251,251,247,.92),rgba(251,251,247,0));
+    backdrop-filter: blur(8px);-webkit-backdrop-filter: blur(8px);
     transition:background .3s, border-color .3s;
     border-bottom:1px solid transparent;
   }
-  nav.top.scrolled{background:rgba(251,251,247,.94);border-bottom-color:var(--line)}
+  nav.top.scrolled{background:rgba(251,251,247,.96);border-bottom-color:var(--line)}
   nav .brand{font-family:'Fraunces',serif;font-size:20px;letter-spacing:-.01em;font-weight:400}
   nav .brand i{font-style:italic;font-weight:300;color:var(--clay)}
-  nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0}
+  nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
   nav ul a{font-size:13px;color:var(--ink-2);transition:color .2s}
   nav ul a:hover{color:var(--clay)}
   nav .cta-nav{
     font-size:12px;padding:10px 18px;border:1px solid var(--ink);border-radius:999px;
-    transition:all .2s;display:inline-flex;align-items:center;gap:8px;
+    transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-weight:500;
   }
   nav .cta-nav:hover{background:var(--ink);color:var(--cream)}
-  nav .cta-nav .dot{width:6px;height:6px;border-radius:99px;background:var(--clay);box-shadow:0 0 0 0 var(--clay);animation:pulse 2s infinite}
+  nav .cta-nav .dot{width:6px;height:6px;border-radius:99px;background:var(--clay);animation:pulse 2s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,107,75,.55)}70%{box-shadow:0 0 0 8px rgba(63,107,75,0)}100%{box-shadow:0 0 0 0 rgba(63,107,75,0)}}
-  @media (max-width:820px){nav ul{display:none} nav.top{padding:16px 22px}}
+  @media (max-width:900px){nav ul{display:none} nav.top{padding:14px 22px}}
 
   /* ——— Hero ——— */
-  .hero{
-    padding: 140px 0 90px;
-    position:relative;
-  }
-  .hero .grid{
-    display:grid;grid-template-columns: 1.15fr .85fr;gap:60px;align-items:end;
-  }
-  @media (max-width:900px){.hero .grid{grid-template-columns:1fr;gap:40px}.hero{padding-top:120px}}
+  .hero{padding: 140px 0 100px;position:relative;background:var(--cream)}
+  .hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:end}
+  @media (max-width:960px){.hero .grid{grid-template-columns:1fr;gap:40px}.hero{padding-top:120px}}
   .eyebrow{display:flex;align-items:center;gap:12px;color:var(--ink-2);margin-bottom:28px}
   .eyebrow .bar{width:36px;height:1px;background:var(--clay)}
   h1.display{
     font-family:'Fraunces',serif;font-weight:300;
-    font-size: clamp(54px, 8.2vw, 128px);
-    line-height:.92;letter-spacing:-.035em;margin:0;
-    color:var(--ink);
+    font-size:clamp(38px,5.3vw,78px);
+    line-height:1.05;letter-spacing:-.025em;margin:0;color:var(--ink);
   }
   h1.display em{font-style:italic;font-weight:300;color:var(--clay)}
-  h1.display .amp{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:var(--gold)}
   .hero .lede{
-    font-size:17px;line-height:1.55;color:var(--ink-2);max-width:440px;margin:36px 0 40px;
+    font-size:17px;line-height:1.6;color:var(--ink-2);max-width:520px;margin:32px 0 32px;
   }
-  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
   .btn{
-    display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;
-    font-size:14px;font-weight:500;transition:all .25s ease;cursor:pointer;border:none;
+    display:inline-flex;align-items:center;gap:10px;padding:17px 28px;border-radius:999px;
+    font-size:14px;font-weight:600;transition:all .25s ease;cursor:pointer;border:none;
+    font-family:inherit;text-align:center;justify-content:center;
   }
-  .btn.primary{background:var(--ink);color:var(--cream)}
-  .btn.primary:hover{background:var(--clay);transform:translateY(-1px)}
+  .btn.primary{background:var(--clay);color:var(--cream)}
+  .btn.primary:hover{background:var(--clay-d);transform:translateY(-2px);box-shadow:0 14px 30px -15px rgba(63,107,75,.6)}
   .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
   .btn.ghost:hover{background:var(--ink);color:var(--cream)}
+  .btn.dark{background:var(--ink);color:var(--cream)}
+  .btn.dark:hover{background:var(--clay)}
   .btn .arrow{transition:transform .2s}
   .btn:hover .arrow{transform:translateX(3px)}
+  .btn.big{padding:20px 34px;font-size:15px}
+  .hero .subcta{font-size:12px;color:var(--ink-2);margin-top:14px;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
 
   .hero .portrait{
-    position:relative;aspect-ratio: 4/5; width:100%;
-    background:
-      linear-gradient(160deg, #3F6B4B 0%, #2D5138 45%, #1C3A26 100%);
-    border-radius:2px;
-    overflow:hidden;
-    box-shadow: 0 30px 60px -30px rgba(28,58,38,.55);
+    position:relative;aspect-ratio:4/5;width:100%;
+    background:linear-gradient(160deg,#3F6B4B 0%,#2D5138 45%,#1C3A26 100%);
+    border-radius:2px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(28,58,38,.55);
   }
   .hero .portrait::before{
-    /* Decorative striped placeholder */
     content:"";position:absolute;inset:0;
-    background-image: repeating-linear-gradient(135deg, rgba(244,236,222,.08) 0 2px, transparent 2px 22px);
+    background-image:repeating-linear-gradient(135deg,rgba(244,236,222,.08) 0 2px,transparent 2px 22px);
     mix-blend-mode:overlay;
   }
-  .hero .portrait .sil{
-    position:absolute; inset:auto 0 0 0; height:86%;
-    display:flex; align-items:flex-end; justify-content:center;
-  }
-  .hero .portrait .sil svg{width:78%;height:100%;filter: drop-shadow(0 20px 20px rgba(0,0,0,.25))}
-  .hero .portrait .pmeta{
-    position:absolute;left:18px;top:18px;color:rgba(244,236,222,.8);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase
-  }
-  .hero .portrait .pmeta2{
-    position:absolute;right:18px;bottom:18px;color:rgba(244,236,222,.8);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;text-align:right
-  }
-
-  .hero .badge-stat{
-    position:absolute;
-    background:var(--cream);
-    border:1px solid var(--line);
-    padding:18px 22px;
-    max-width:230px;
-    border-radius:2px;
-    box-shadow: 0 12px 30px -18px rgba(43,29,20,.3);
-  }
-  .hero .badge-stat.b1{ left:-30px; top:60px }
-  .hero .badge-stat.b1 .n{font-family:'Fraunces',serif;font-size:38px;line-height:1;color:var(--clay)}
-  .hero .badge-stat.b1 .t{font-size:12px;color:var(--ink-2);margin-top:6px}
-  @media (max-width:900px){.hero .badge-stat.b1{display:none}}
-
-  /* rotating word */
-  .rotator{display:inline-block;position:relative;min-width: 4ch;}
-  .rotator span{display:inline-block;transition:transform .5s cubic-bezier(.7,0,.3,1), opacity .5s}
-  .rotator span.out{transform:translateY(-.4em);opacity:0;position:absolute;left:0}
-  .rotator span.in{transform:translateY(0);opacity:1}
+  .hero .portrait .sil{position:absolute;inset:auto 0 0 0;height:86%;display:flex;align-items:flex-end;justify-content:center}
+  .hero .portrait .sil svg{width:78%;height:100%;filter:drop-shadow(0 20px 20px rgba(0,0,0,.25))}
+  .hero .portrait .pmeta{position:absolute;left:18px;top:18px;color:rgba(244,236,222,.8);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase}
+  .hero .portrait .pmeta2{position:absolute;right:18px;bottom:18px;color:rgba(244,236,222,.8);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;text-align:right}
 
   /* ——— Ticker ——— */
-  .ticker{
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    overflow:hidden;background:var(--cream);
-    padding:18px 0;
-  }
-  .ticker .track{display:flex;gap:60px;animation: tick 40s linear infinite;white-space:nowrap}
-  .ticker .track span{font-family:'Fraunces',serif;font-style:italic;font-size:26px;color:var(--ink)}
-  .ticker .track i{display:inline-block;width:8px;height:8px;background:var(--clay);border-radius:99px;align-self:center;margin:0 20px;transform:translateY(-4px)}
+  .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--cream);padding:16px 0}
+  .ticker .track{display:flex;gap:60px;animation:tick 48s linear infinite;white-space:nowrap}
+  .ticker .track span{font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--ink)}
+  .ticker .track i{display:inline-block;width:6px;height:6px;background:var(--clay);border-radius:99px;align-self:center;margin:0 18px;transform:translateY(-3px)}
   @keyframes tick{to{transform:translateX(-50%)}}
 
   /* ——— Section chrome ——— */
   section{position:relative}
-  .section-head{display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:baseline;margin-bottom:56px;padding-top:120px}
-  @media(max-width:820px){.section-head{grid-template-columns:1fr;padding-top:80px}}
-  .section-head h2{
-    font-family:'Fraunces',serif;font-weight:300;font-size:clamp(36px, 5vw, 64px);
-    line-height:1;letter-spacing:-.02em;margin:16px 0 0;
-  }
-  .section-head h2 em{font-style:italic;color:var(--clay)}
-  .section-head .kicker{color:var(--ink-2);font-size:15px;line-height:1.5;max-width:520px}
-  .s-idx{color:var(--clay);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em}
-
-  /* ——— Manifesto ——— */
-  .manifesto{padding-bottom:40px}
-  .manifesto p{
+  .sec{padding:100px 0}
+  .sec.dark{background:var(--ink);color:var(--cream)}
+  .sec.earth{background:var(--cream-2)}
+  .sec.clay{background:var(--clay);color:var(--cream)}
+  .s-head{margin-bottom:48px;max-width:900px}
+  .s-idx{color:var(--clay);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+  .sec.dark .s-idx,.sec.clay .s-idx{color:var(--sand)}
+  .s-head h2{
     font-family:'Fraunces',serif;font-weight:300;
-    font-size:clamp(26px,3.4vw,46px);line-height:1.18;letter-spacing:-.015em;
-    max-width:1100px;color:var(--ink);
+    font-size:clamp(32px,4.6vw,56px);
+    line-height:1.05;letter-spacing:-.02em;margin:14px 0 0;
   }
-  .manifesto p .hi{background:linear-gradient(180deg,transparent 60%,rgba(198,118,80,.25) 60%);padding:0 3px}
-  .manifesto p em{font-style:italic;color:var(--clay)}
+  .s-head h2 em{font-style:italic;color:var(--clay)}
+  .sec.dark .s-head h2 em,.sec.clay .s-head h2 em{color:var(--gold)}
+  .s-head .kicker{color:var(--ink-2);font-size:16px;line-height:1.6;max-width:620px;margin-top:18px}
+  .sec.dark .s-head .kicker{color:rgba(251,251,247,.72)}
 
-  /* ——— Autoridad ——— */
-  .about{
-    display:grid;grid-template-columns: 1fr 1fr; gap:80px; align-items:start;
-    padding-bottom:40px;
+  /* ——— Pain prose (sec 2) ——— */
+  .prose p{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(20px,2.1vw,26px);line-height:1.5;letter-spacing:-.01em;
+    color:var(--ink);margin:0 0 22px;
   }
-  @media(max-width:900px){.about{grid-template-columns:1fr;gap:40px}}
-  .about .copy p{font-size:16px;line-height:1.65;color:var(--ink-2);margin:0 0 18px}
-  .about .copy p strong{color:var(--ink);font-weight:500}
-  .about .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:32px}
-  .about .stats .cell{background:var(--cream);padding:22px}
-  .about .stats .n{font-family:'Fraunces',serif;font-size:42px;line-height:1;color:var(--ink);font-weight:300}
-  .about .stats .n em{font-style:italic;color:var(--clay)}
-  .about .stats .t{font-size:12px;color:var(--ink-2);margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
-  .about .card{
-    background:var(--cream-2);border-radius:2px;padding:32px;border:1px solid var(--line);
-  }
-  .about .card h3{font-family:'Fraunces',serif;font-weight:400;font-size:24px;margin:0 0 12px;letter-spacing:-.01em}
-  .about .card ul{list-style:none;margin:0;padding:0}
-  .about .card li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(43,29,20,.08);font-size:14px;color:var(--ink-2)}
-  .about .card li:last-child{border-bottom:none}
-  .about .card li .yr{font-family:'JetBrains Mono',monospace;color:var(--clay);min-width:54px;font-size:12px}
+  .prose p strong{font-weight:500;color:var(--clay)}
+  .prose p em{font-style:italic;color:var(--clay)}
 
-  /* ——— Quiz ——— */
-  .quiz-wrap{
-    background:var(--ink);color:var(--cream);border-radius:4px;overflow:hidden;
-    display:grid;grid-template-columns: 1fr 1fr; min-height:520px;
-    box-shadow: 0 40px 80px -40px rgba(43,29,20,.5);
-  }
-  @media(max-width:900px){.quiz-wrap{grid-template-columns:1fr}}
-  .quiz-wrap .q-side{
-    padding:48px;display:flex;flex-direction:column;justify-content:space-between;
-    background:
-      radial-gradient(ellipse at top left, rgba(198,118,80,.35), transparent 60%),
-      var(--ink);
-    position:relative;
-  }
-  .quiz-wrap .q-side .kicker{color:var(--clay);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
-  .quiz-wrap .q-side h3{
-    font-family:'Fraunces',serif;font-weight:300;font-size:44px;line-height:1.05;letter-spacing:-.02em;margin:18px 0 0
-  }
-  .quiz-wrap .q-side h3 em{font-style:italic;color:var(--clay)}
-  .quiz-wrap .q-side .illus{
-    margin-top:32px;opacity:.9;
-  }
-  .quiz-wrap .q-main{
-    padding:48px;background:#221711;display:flex;flex-direction:column;justify-content:space-between;
-  }
-  .q-progress{display:flex;gap:6px;margin-bottom:32px}
-  .q-progress div{flex:1;height:3px;background:rgba(244,236,222,.15);border-radius:2px;transition:background .3s}
-  .q-progress div.active{background:var(--clay)}
-  .q-progress div.done{background:var(--cream)}
-  .q-question{font-family:'Fraunces',serif;font-size:30px;line-height:1.18;font-weight:300;letter-spacing:-.015em;margin:0 0 28px;min-height:120px}
-  .q-option{
-    display:flex;align-items:center;gap:14px;
-    padding:16px 20px;border:1px solid rgba(244,236,222,.18);border-radius:2px;margin-bottom:10px;
-    cursor:pointer;transition:all .2s;color:var(--cream);font-size:15px;
-  }
-  .q-option:hover{border-color:var(--clay);background:rgba(198,118,80,.08)}
-  .q-option .bullet{width:18px;height:18px;border-radius:99px;border:1px solid rgba(244,236,222,.35);display:inline-flex;align-items:center;justify-content:center}
-  .q-option:hover .bullet{border-color:var(--clay)}
-  .q-footer{display:flex;justify-content:space-between;align-items:center;margin-top:28px;color:rgba(244,236,222,.5);font-size:12px}
+  /* ——— Truth (sec 3) ——— */
+  .truth-card{background:var(--cream);color:var(--ink);padding:52px;border-radius:4px;max-width:920px}
+  .truth-card h3{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(26px,3vw,40px);line-height:1.15;letter-spacing:-.015em;margin:0 0 24px}
+  .truth-card p{font-size:16px;line-height:1.7;color:var(--ink-2);margin:0 0 18px}
+  .truth-card p strong{color:var(--ink);font-weight:600}
+  .truth-card p em{color:var(--clay);font-style:italic}
+  .truth-pill{display:inline-block;background:var(--sand);color:var(--clay-d);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:18px}
+  @media (max-width:720px){.truth-card{padding:32px}}
 
-  .q-result{display:none;padding:0}
-  .q-result.show{display:block}
-  .q-result h4{font-family:'Fraunces',serif;font-weight:300;font-size:34px;margin:0 0 12px;line-height:1.1}
-  .q-result h4 em{font-style:italic;color:var(--clay)}
-  .q-result p{color:rgba(244,236,222,.75);line-height:1.6;font-size:15px;margin:0 0 22px}
-  .q-result .rec{background:rgba(198,118,80,.12);border:1px solid rgba(198,118,80,.3);padding:20px;border-radius:2px;margin-bottom:20px}
-  .q-result .rec .mono{color:var(--clay)}
-  .q-result .rec h5{font-family:'Fraunces',serif;font-weight:400;font-size:20px;margin:6px 0 6px}
-
-  /* ——— Barriers ——— */
-  .barriers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-bottom:40px}
-  @media(max-width:820px){.barriers{grid-template-columns:1fr}}
-  .barrier{
-    background:var(--cream-2);border:1px solid var(--line);padding:32px;border-radius:2px;
-    position:relative;overflow:hidden;transition:transform .3s, background .3s;
+  /* ——— Jhana story ——— */
+  .story{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+  @media (max-width:960px){.story{grid-template-columns:1fr;gap:40px}}
+  .story .photo{
+    aspect-ratio:4/5;background:linear-gradient(160deg,#3F6B4B 0%,#2D5138 100%);
+    border-radius:2px;position:relative;overflow:hidden;
+    box-shadow:0 20px 50px -20px rgba(28,58,38,.4);
   }
-  .barrier:hover{background:var(--sand);transform:translateY(-3px)}
-  .barrier .num{font-family:'Fraunces',serif;font-style:italic;font-size:60px;color:var(--clay);line-height:1;opacity:.7}
-  .barrier h4{font-family:'Fraunces',serif;font-weight:400;font-size:24px;margin:14px 0 10px;letter-spacing:-.01em}
-  .barrier p{font-size:14px;color:var(--ink-2);line-height:1.55;margin:0}
-  .barrier .tag{display:inline-block;margin-top:18px;padding:6px 12px;background:var(--cream);border:1px solid var(--line);border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+  .story .photo::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(244,236,222,.08) 0 2px,transparent 2px 22px);mix-blend-mode:overlay}
+  .story .photo .sil{position:absolute;inset:auto 0 0 0;height:84%;display:flex;align-items:flex-end;justify-content:center}
+  .story .photo .sil svg{width:80%;height:100%}
+  .story .photo .meta{position:absolute;left:16px;top:16px;color:rgba(244,236,222,.8);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase}
+  .story .copy h3{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(30px,3.6vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 28px}
+  .story .copy h3 em{font-style:italic;color:var(--clay)}
+  .story .copy p{font-size:16px;line-height:1.7;color:var(--ink-2);margin:0 0 16px}
+  .story .copy p strong{color:var(--ink);font-weight:500}
+  .story .copy p em{color:var(--clay);font-style:italic}
 
-  /* ——— Pricing ——— */
-  .pricing{padding-bottom:40px}
-  .pricing-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:32px}
-  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  @media(max-width:900px){.pricing-grid{grid-template-columns:1fr}}
-  .plan{
+  /* ——— For-you grid (sec 5) ——— */
+  .foryou-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media (max-width:820px){.foryou-grid{grid-template-columns:1fr}}
+  .fy-col{padding:36px;border:1px solid var(--line);border-radius:2px;background:var(--cream)}
+  .fy-col.yes{border-color:rgba(63,107,75,.35);background:#F3F7EE}
+  .fy-col.no{background:#FAF5F1;border-color:rgba(138,106,67,.25)}
+  .fy-col h4{font-family:'Fraunces',serif;font-weight:400;font-size:22px;margin:0 0 20px;letter-spacing:-.01em}
+  .fy-col ul{list-style:none;margin:0;padding:0}
+  .fy-col li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid rgba(22,34,24,.08);font-size:15px;line-height:1.5;color:var(--ink)}
+  .fy-col li:last-child{border-bottom:none}
+  .fy-col li .mark{flex-shrink:0;width:22px;height:22px;border-radius:99px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-top:1px}
+  .fy-col.yes .mark{background:var(--clay);color:var(--cream)}
+  .fy-col.no .mark{background:var(--earth);color:var(--cream)}
+
+  /* ——— Method · 3 phases ——— */
+  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+  @media (max-width:1000px){.phases{grid-template-columns:1fr}}
+  .phase{
+    background:var(--cream);border:1px solid var(--line);padding:36px;border-radius:2px;
+    display:flex;flex-direction:column;position:relative;overflow:hidden;
+  }
+  .phase::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--clay)}
+  .phase .ph-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--clay);text-transform:uppercase}
+  .phase .ph-num{font-family:'Fraunces',serif;font-style:italic;font-size:56px;color:var(--sand);line-height:1;margin:8px 0 4px;font-weight:300}
+  .phase h4{font-family:'Fraunces',serif;font-weight:400;font-size:26px;margin:0 0 8px;letter-spacing:-.01em}
+  .phase .weeks{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-2);letter-spacing:.08em;margin-bottom:16px}
+  .phase .arc{font-size:14px;line-height:1.55;color:var(--ink-2);margin:0 0 22px}
+  .phase .arc strong{color:var(--ink);font-weight:500}
+  .phase ul.modules{list-style:none;margin:0 0 22px;padding:0;border-top:1px solid var(--line)}
+  .phase ul.modules li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink);display:flex;gap:10px}
+  .phase ul.modules li .wk{font-family:'JetBrains Mono',monospace;color:var(--clay);font-size:11px;flex-shrink:0;min-width:70px;letter-spacing:.05em;padding-top:2px}
+  .phase .salida{background:var(--cream-2);padding:16px;border-radius:2px;font-size:13px;line-height:1.55;color:var(--ink);margin-top:auto}
+  .phase .salida .mono{color:var(--clay);display:block;margin-bottom:6px}
+
+  /* ——— Includes (sec 7) ——— */
+  .incl-group{margin-bottom:40px}
+  .incl-group h4{font-family:'Fraunces',serif;font-weight:400;font-size:22px;margin:0 0 16px;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+  .incl-group h4::before{content:"";width:24px;height:1px;background:var(--clay)}
+  .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:820px){.incl-grid{grid-template-columns:1fr}}
+  .incl-item{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:18px 20px;background:var(--cream);border:1px solid var(--line);border-radius:2px;
+    transition:border-color .2s, transform .2s;
+  }
+  .incl-item:hover{border-color:var(--clay);transform:translateY(-2px)}
+  .incl-item .ico{flex-shrink:0;width:38px;height:38px;border-radius:99px;background:var(--cream-2);display:inline-flex;align-items:center;justify-content:center;font-size:18px}
+  .incl-item .body strong{display:block;font-weight:600;font-size:15px;color:var(--ink);margin-bottom:3px}
+  .incl-item .body span{font-size:13px;color:var(--ink-2);line-height:1.5}
+
+  /* ——— Testimonials ——— */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media (max-width:1000px){.testi-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:720px){.testi-grid{grid-template-columns:1fr}}
+  .testi{background:var(--cream);border:1px solid var(--line);padding:28px;border-radius:2px;display:flex;flex-direction:column}
+  .testi .quote{font-family:'Fraunces',serif;font-weight:300;font-size:17px;line-height:1.5;color:var(--ink);margin:0 0 22px;flex:1;font-style:italic}
+  .testi .who{display:flex;gap:14px;align-items:center;padding-top:18px;border-top:1px solid var(--line)}
+  .testi .avatar{width:44px;height:44px;border-radius:99px;background:var(--clay);color:var(--cream);font-family:'Fraunces',serif;font-size:20px;display:inline-flex;align-items:center;justify-content:center;font-weight:400;flex-shrink:0}
+  .testi .who .name{font-weight:600;font-size:14px;color:var(--ink);margin:0}
+  .testi .who .meta{font-size:12px;color:var(--ink-2);margin-top:2px}
+  .testi.video{background:var(--ink);color:var(--cream);justify-content:center;align-items:center;text-align:center;min-height:220px;cursor:pointer;transition:background .2s}
+  .testi.video:hover{background:var(--clay-d)}
+  .testi.video .play{width:60px;height:60px;border-radius:99px;background:var(--clay);display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .testi.video .play svg{width:22px;height:22px}
+  .testi.video .label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--sand)}
+  .testi.video .title{font-family:'Fraunces',serif;font-size:19px;font-weight:300;margin-top:6px;line-height:1.3}
+
+  /* ——— Value table ——— */
+  .value-table{background:var(--cream);border:1px solid var(--line);border-radius:4px;overflow:hidden;max-width:820px;margin:0 auto}
+  .value-row{display:grid;grid-template-columns:1fr auto;gap:24px;padding:18px 28px;border-bottom:1px solid var(--line);align-items:center}
+  .value-row:last-child{border-bottom:none}
+  .value-row .item{font-size:15px;color:var(--ink)}
+  .value-row .price{font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:var(--clay);white-space:nowrap}
+  .value-row.total{background:var(--ink);color:var(--cream)}
+  .value-row.total .item{font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:var(--cream)}
+  .value-row.total .price{font-size:28px;color:var(--gold)}
+  .value-highlight{text-align:center;margin-top:32px;font-family:'Fraunces',serif;font-size:clamp(22px,2.6vw,30px);font-weight:300;line-height:1.3;letter-spacing:-.01em}
+  .value-highlight strong{color:var(--clay);font-weight:500}
+
+  /* ——— Payment ——— */
+  .pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+  @media (max-width:960px){.pay-grid{grid-template-columns:1fr}}
+  .pay{
     background:var(--cream);border:1px solid var(--line);border-radius:2px;padding:32px;
-    display:flex;flex-direction:column;transition:all .3s;cursor:pointer;position:relative;
+    display:flex;flex-direction:column;position:relative;transition:all .3s;
   }
-  .plan:hover{border-color:var(--clay);transform:translateY(-4px);box-shadow:0 20px 40px -25px rgba(43,29,20,.3)}
-  .plan.featured{background:var(--ink);color:var(--cream)}
-  .plan.featured .planmeta{color:rgba(244,236,222,.6)}
-  .plan.featured .planprice{color:var(--cream)}
-  .plan.featured .planprice em{color:var(--clay)}
-  .plan.featured .btn.primary{background:var(--clay);color:var(--ink)}
-  .plan.featured .btn.primary:hover{background:var(--cream)}
-  .plan.featured hr{border-color:rgba(244,236,222,.15)}
-  .plan.featured li{color:rgba(244,236,222,.8)}
-  .plan.featured li::before{color:var(--clay)}
-  .plan .ribbon{position:absolute;top:18px;right:18px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);padding:4px 8px;border:1px solid var(--clay);border-radius:999px}
-  .planmeta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-2)}
-  .planname{font-family:'Fraunces',serif;font-weight:400;font-size:28px;letter-spacing:-.01em;margin:10px 0 0}
-  .planprice{font-family:'Fraunces',serif;font-weight:300;font-size:56px;line-height:1;margin:18px 0 6px;letter-spacing:-.03em}
-  .planprice em{font-style:italic;color:var(--clay);font-size:22px;font-weight:300;letter-spacing:normal;margin-left:4px}
-  .plansub{font-size:13px;color:var(--ink-2);margin-bottom:22px}
-  .plan hr{border:none;border-top:1px solid var(--line);margin:18px 0}
-  .plan ul{list-style:none;margin:0 0 26px;padding:0;flex:1}
-  .plan li{font-size:14px;padding:8px 0 8px 24px;position:relative;color:var(--ink-2)}
-  .plan li::before{content:"→";position:absolute;left:0;color:var(--clay);font-weight:600}
-  .plan .desc{font-size:14px;line-height:1.55;color:var(--ink-2);margin:0 0 14px}
-  .plan.featured .desc{color:rgba(244,236,222,.75)}
-  .btn.plan-cta{width:100%;justify-content:center;padding:15px 22px}
+  .pay:hover{border-color:var(--clay);transform:translateY(-3px)}
+  .pay.featured{background:var(--ink);color:var(--cream);border-color:var(--clay)}
+  .pay.featured .pay-label{color:var(--gold)}
+  .pay.featured .pay-sub{color:rgba(251,251,247,.72)}
+  .pay.featured .btn{background:var(--clay);color:var(--cream)}
+  .pay.featured .btn:hover{background:var(--gold);color:var(--ink)}
+  .pay .ribbon{position:absolute;top:-12px;right:18px;background:var(--gold);color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;padding:6px 12px;border-radius:999px;font-weight:600}
+  .pay-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);margin-bottom:8px}
+  .pay-amount{font-family:'Fraunces',serif;font-weight:300;font-size:44px;line-height:1;letter-spacing:-.02em;margin:6px 0 4px}
+  .pay-amount em{font-style:normal;font-size:22px;color:var(--ink-2);margin-left:4px}
+  .pay.featured .pay-amount em{color:rgba(251,251,247,.7)}
+  .pay-total{font-size:13px;color:var(--ink-2);margin-bottom:6px;font-family:'JetBrains Mono',monospace;letter-spacing:.05em}
+  .pay.featured .pay-total{color:rgba(251,251,247,.6)}
+  .pay-sub{font-size:14px;line-height:1.5;color:var(--ink-2);margin:14px 0 24px;flex:1}
+  .pay .btn{width:100%;justify-content:center}
 
-  /* ——— Expansión ——— */
-  .expansion{display:grid;grid-template-columns:1.4fr .9fr;gap:32px;align-items:start}
-  @media(max-width:960px){.expansion{grid-template-columns:1fr}}
-  .exp-main{background:var(--cream-2);border:1px solid var(--line);padding:44px;border-radius:2px}
-  .exp-title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:14px 0 20px;color:var(--ink)}
-  .exp-title em{font-style:italic;color:var(--clay)}
-  .exp-desc{font-size:16px;line-height:1.6;color:var(--ink-2);max-width:640px;margin:0 0 32px}
-  .exp-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:36px;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  @media(max-width:700px){.exp-pillars{grid-template-columns:1fr}}
-  .pillar .pnum{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--clay);letter-spacing:.15em}
-  .pillar h5{font-family:'Fraunces',serif;font-weight:400;font-size:22px;margin:6px 0 6px;letter-spacing:-.01em}
-  .pillar p{font-size:13px;color:var(--ink-2);line-height:1.55;margin:0}
-  .exp-includes ul{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 28px}
-  @media(max-width:700px){.exp-includes ul{grid-template-columns:1fr}}
-  .exp-includes li{font-size:14px;padding:8px 0 8px 22px;position:relative;color:var(--ink)}
-  .exp-includes li::before{content:"\2713";position:absolute;left:0;color:var(--clay);font-weight:700}
-  .exp-aside{background:var(--ink);color:var(--cream);padding:36px;border-radius:2px;position:sticky;top:90px;box-shadow:0 30px 60px -30px rgba(22,34,24,.5)}
-  .exp-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);padding:5px 10px;border:1px solid var(--clay);border-radius:999px;margin-bottom:18px}
-  .exp-aside h4{font-family:'Fraunces',serif;font-weight:300;font-size:38px;line-height:1.05;letter-spacing:-.02em;margin:0 0 14px}
-  .exp-aside > p{font-size:14px;color:rgba(251,251,247,.72);line-height:1.55;margin:0 0 22px}
-  .exp-form{display:flex;flex-direction:column;gap:12px}
-  .exp-form label{display:flex;flex-direction:column;gap:6px}
-  .exp-form label span{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(251,251,247,.55)}
-  .exp-form input{background:transparent;border:none;border-bottom:1px solid rgba(251,251,247,.22);color:var(--cream);padding:8px 0;font-family:inherit;font-size:15px;outline:none;transition:border-color .2s}
-  .exp-form input:focus{border-bottom-color:var(--clay)}
-  .exp-form button{margin-top:12px}
-  .exp-form .thanks{display:none;color:var(--gold);font-size:13px;margin-top:10px}
-  .exp-form .thanks.show{display:inline}
+  .methods{text-align:center;margin-top:36px}
+  .methods-title{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;color:var(--ink-2);text-transform:uppercase;margin-bottom:14px}
+  .methods-list{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;font-size:14px;color:var(--ink-2)}
+  .methods-list span{display:inline-flex;gap:6px;align-items:center}
 
-  /* ——— Services strip ——— */
-  .services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:80px}
-  @media(max-width:820px){.services{grid-template-columns:1fr}}
-  .svc{padding:38px 28px;border-right:1px solid var(--line);transition:background .3s;cursor:pointer}
-  .svc:last-child{border-right:none}
-  @media(max-width:820px){.svc{border-right:none;border-bottom:1px solid var(--line)}.svc:last-child{border-bottom:none}}
-  .svc:hover{background:var(--cream-2)}
-  .svc .ico{width:44px;height:44px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;border:1px solid var(--ink);border-radius:99px}
-  .svc h4{font-family:'Fraunces',serif;font-weight:400;font-size:22px;margin:0 0 8px}
-  .svc p{font-size:14px;line-height:1.55;color:var(--ink-2);margin:0}
+  .upgrade-box{
+    margin-top:48px;padding:28px 32px;background:var(--cream-2);border:1px dashed var(--clay);border-radius:2px;
+    display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  }
+  .upgrade-box h5{font-family:'Fraunces',serif;font-weight:400;font-size:22px;margin:0 0 6px}
+  .upgrade-box p{font-size:14px;color:var(--ink-2);line-height:1.5;margin:0;max-width:560px}
+  .upgrade-box .price-add{font-family:'Fraunces',serif;font-size:26px;color:var(--clay);white-space:nowrap;font-weight:400}
 
-  /* ——— CTA big ——— */
-  .cta-big{
-    margin-top:80px;padding:100px 0 110px;background:var(--clay);color:var(--cream);
-    position:relative;overflow:hidden;
+  /* ——— Guarantee ——— */
+  .guarantee{
+    background:#F8F1E6;color:var(--ink);padding:72px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   }
-  .cta-big::before{
-    content:"";position:absolute;inset:0;
-    background-image:repeating-linear-gradient(135deg, rgba(244,236,222,.06) 0 1px, transparent 1px 30px);
+  .guarantee-inner{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:start}
+  @media (max-width:820px){.guarantee-inner{grid-template-columns:1fr;gap:28px}}
+  .guarantee .seal{
+    width:160px;height:160px;border-radius:99px;background:var(--earth);color:var(--cream);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;
+    font-family:'Fraunces',serif;text-align:center;line-height:1;box-shadow:0 20px 40px -20px rgba(138,106,67,.5);
   }
-  .cta-big h2{
-    font-family:'Fraunces',serif;font-weight:300;font-size:clamp(44px,6vw,96px);
-    line-height:.95;letter-spacing:-.03em;margin:0;max-width:1200px;
+  .guarantee .seal .big{font-size:56px;font-weight:300;font-style:italic;margin-bottom:6px}
+  .guarantee .seal .small{font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+  .guarantee h3{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(28px,3.4vw,42px);line-height:1.1;letter-spacing:-.02em;margin:0 0 18px}
+  .guarantee h3 em{font-style:italic;color:var(--earth)}
+  .guarantee p{font-size:16px;line-height:1.7;color:var(--ink-2);margin:0 0 14px}
+  .guarantee p strong{color:var(--ink);font-weight:500}
+  .guarantee .sig{font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:var(--clay);margin-top:20px}
+
+  /* ——— Urgency ——— */
+  .urgency{background:var(--ink);color:var(--cream);padding:80px 0}
+  .urgency-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:60px;align-items:center}
+  @media (max-width:900px){.urgency-grid{grid-template-columns:1fr;gap:32px}}
+  .urgency h3{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(30px,4vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0 0 22px}
+  .urgency h3 em{font-style:italic;color:var(--gold)}
+  .urgency p{font-size:16px;line-height:1.65;color:rgba(251,251,247,.75);margin:0 0 14px}
+  .urgency .stat-box{
+    background:rgba(124,156,110,.12);border:1px solid rgba(124,156,110,.35);
+    padding:28px;border-radius:2px;text-align:center;
   }
-  .cta-big h2 em{font-style:italic;color:var(--cream-2)}
-  .cta-big .row{margin-top:42px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
-  .cta-big .btn.primary{background:var(--ink);color:var(--cream)}
-  .cta-big .btn.primary:hover{background:var(--cream);color:var(--ink)}
-  .cta-big .sub{font-size:15px;max-width:380px;line-height:1.5;color:rgba(244,236,222,.85)}
+  .urgency .stat-box .num{font-family:'Fraunces',serif;font-weight:300;font-size:72px;line-height:1;color:var(--gold);letter-spacing:-.03em}
+  .urgency .stat-box .num em{font-style:normal;color:rgba(251,251,247,.45);font-size:42px;margin-left:4px}
+  .urgency .stat-box .label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sand);margin-top:10px}
+  .urgency .dates{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sand);letter-spacing:.1em;margin-top:20px;padding-top:20px;border-top:1px solid rgba(251,251,247,.15)}
 
   /* ——— FAQ ——— */
-  .faqs{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
-  @media(max-width:820px){.faqs{grid-template-columns:1fr}}
-  .faq{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:28px;cursor:pointer}
-  .faq:nth-child(even){border-right:none}
-  @media(max-width:820px){.faq{border-right:none}}
-  .faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:'Fraunces',serif;font-size:20px;font-weight:400;letter-spacing:-.01em}
+  .faq-list{max-width:900px;margin:0 auto;border-top:1px solid var(--line)}
+  .faq{border-bottom:1px solid var(--line);cursor:pointer}
+  .faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:'Fraunces',serif;font-size:19px;font-weight:400;letter-spacing:-.01em;color:var(--ink)}
   .faq summary::-webkit-details-marker{display:none}
-  .faq summary .plus{width:28px;height:28px;border-radius:99px;border:1px solid var(--ink);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:14px}
-  .faq[open] summary .plus{background:var(--ink);color:var(--cream);transform:rotate(45deg)}
-  .faq p{margin:16px 0 4px;color:var(--ink-2);font-size:14px;line-height:1.6}
+  .faq summary .plus{width:28px;height:28px;border-radius:99px;border:1px solid var(--ink);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:14px;font-weight:400}
+  .faq[open] summary .plus{background:var(--clay);color:var(--cream);border-color:var(--clay);transform:rotate(45deg)}
+  .faq p{margin:0 0 18px;color:var(--ink-2);font-size:15px;line-height:1.7}
+  .faq p em{color:var(--clay);font-style:italic}
+  .faq p strong{color:var(--ink)}
+
+  /* ——— Emotional close ——— */
+  .close-sec{background:linear-gradient(160deg,var(--brick) 0%,var(--ink) 100%);color:var(--cream);padding:120px 0;position:relative;overflow:hidden}
+  .close-sec::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(244,236,222,.04) 0 1px,transparent 1px 30px)}
+  .close-inner{position:relative;max-width:860px;margin:0 auto;text-align:center}
+  .close-inner h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(38px,5vw,64px);line-height:1.05;letter-spacing:-.025em;margin:0 0 40px;color:var(--cream)}
+  .close-inner h2 em{font-style:italic;color:var(--gold)}
+  .close-inner p{font-size:17px;line-height:1.75;color:rgba(251,251,247,.82);margin:0 0 20px;text-align:left}
+  .close-inner p strong{color:var(--cream);font-weight:500}
+  .close-inner p em{font-style:italic;color:var(--gold)}
+  .close-inner .final-cta{margin-top:44px}
+  .close-inner .whisper{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:rgba(251,251,247,.65);margin-top:22px;line-height:1.5}
 
   /* ——— Footer ——— */
-  footer{margin-top:100px;padding:70px 0 40px;background:var(--ink);color:var(--cream)}
-  footer .f-grid{display:grid;grid-template-columns: 2fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
-  @media(max-width:820px){footer .f-grid{grid-template-columns:1fr 1fr}}
-  footer h5{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);margin:0 0 18px;font-weight:400}
+  footer{padding:70px 0 36px;background:var(--ink);color:var(--cream);border-top:1px solid rgba(244,236,222,.1)}
+  footer .f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:56px}
+  @media (max-width:820px){footer .f-grid{grid-template-columns:1fr 1fr}}
+  footer h5{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin:0 0 18px;font-weight:400}
   footer ul{list-style:none;margin:0;padding:0}
-  footer li{margin-bottom:10px;font-size:14px;color:rgba(244,236,222,.7)}
+  footer li{margin-bottom:10px;font-size:14px;color:rgba(244,236,222,.72)}
   footer li a:hover{color:var(--cream)}
-  footer .bigname{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(60px,12vw,180px);line-height:.85;letter-spacing:-.04em;color:var(--cream);opacity:.9;margin:0;overflow:hidden;white-space:nowrap}
+  footer .bigname{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(54px,11vw,160px);line-height:.85;letter-spacing:-.04em;color:var(--cream);opacity:.92;margin:0;overflow:hidden;white-space:nowrap}
   footer .bigname em{font-style:italic;color:var(--clay)}
-  footer .legal{display:flex;justify-content:space-between;border-top:1px solid rgba(244,236,222,.12);padding-top:24px;font-size:12px;color:rgba(244,236,222,.5);flex-wrap:wrap;gap:10px}
+  footer .legal{display:flex;justify-content:space-between;border-top:1px solid rgba(244,236,222,.12);padding-top:22px;font-size:12px;color:rgba(244,236,222,.5);flex-wrap:wrap;gap:10px;margin-top:30px}
 
   /* ——— Reveal animation ——— */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
   .reveal.in{opacity:1;transform:translateY(0)}
-
 
 </style>
 </head>
@@ -383,42 +368,40 @@
 <nav class="top" id="nav">
   <div class="brand">jhana <i>el aridi</i></div>
   <ul>
-    <li><a href="#manifesto">Manifiesto</a></li>
-    <li><a href="#quien">Quién soy</a></li>
-    <li><a href="#quiz">Diagnóstico</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#paquetes">Expansión</a></li>
+    <li><a href="#metodo">Método</a></li>
+    <li><a href="#incluye">Qué incluye</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#precio">Inversión</a></li>
+    <li><a href="#faq">Preguntas</a></li>
   </ul>
-  <a class="cta-nav" href="#paquetes"><span class="dot"></span> Lista de espera</a>
+  <a class="cta-nav" href="#precio"><span class="dot"></span> Reservar lugar</a>
 </nav>
 
-<!-- ——— HERO ——— -->
+<!-- ———————————————————————————————————— 01 · HERO ———————————————————————————————————— -->
 <header class="hero">
   <div class="container">
     <div class="grid">
       <div>
         <div class="eyebrow">
           <span class="bar"></span>
-          <span class="mono">Coach de mentalidad de abundancia · Desde 2020</span>
+          <span class="mono">Expansión 10X · Con Jhana El Aridi · Cohortes 2026</span>
         </div>
         <h1 class="display">
-          Sanar tu relación<br/>con el <em>dinero</em><br/>
-          <span class="amp">&</span> con la <em>abundancia</em>.
+          Si sabés que viniste a <em>más</em>, pero algo invisible te frena — <em>este</em> es el camino que llevabas años buscando sin saberlo.
         </h1>
         <p class="lede">
-          Acompaño a latinos que están listos para soltar la escasez programada en el inconsciente — y empezar a recibir sin culpa, sin encogerse, sin poner el dinero en el centro de su valor.
+          <strong>Expansión 10X</strong> — un programa de 12 semanas para sanar tu relación con el dinero, reprogramar tu merecimiento y construir la estructura financiera real que te compra la libertad.
         </p>
         <div class="ctas">
-          <a class="btn primary" href="#paquetes">Agendar mi sesión <span class="arrow">→</span></a>
-          <a class="btn ghost" href="#quiz">Hacer el diagnóstico</a>
+          <a class="btn primary big" href="#precio">Quiero mi lugar en Expansión 10X <span class="arrow">→</span></a>
         </div>
+        <div class="subcta">Cohortes limitadas · Próxima apertura: [FECHA] · Inversión: $2,500 USD</div>
       </div>
 
       <div style="position:relative">
         <div class="portrait" role="img" aria-label="Retrato de Jhana El Aridi">
-          <div class="pmeta">Jhana · 01</div>
+          <div class="pmeta">Jhana · Expansión 10X</div>
           <div class="pmeta2">Caracas → Mundo</div>
-          <!-- original abstract silhouette placeholder -->
           <div class="sil" aria-hidden="true">
             <svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMax meet">
               <defs>
@@ -427,519 +410,561 @@
                   <stop offset="1" stop-color="#F4ECDE" stop-opacity=".08"/>
                 </linearGradient>
               </defs>
-              <!-- soft abstract figure -->
               <ellipse cx="100" cy="58" rx="34" ry="38" fill="url(#g1)"/>
               <path d="M40 260 C 42 180, 60 150, 100 148 C 140 150, 158 180, 160 260 Z" fill="url(#g1)"/>
               <path d="M100 96 C 88 110, 85 126, 88 148 L 112 148 C 115 126, 112 110, 100 96 Z" fill="url(#g1)" opacity=".7"/>
             </svg>
           </div>
         </div>
-        <div class="badge-stat b1">
-          <div class="n">1,500+</div>
-          <div class="t">Personas acompañadas en programas y conferencias</div>
-        </div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- ——— Ticker ——— -->
+<!-- ———————————————————————————————————— Ticker ———————————————————————————————————— -->
 <div class="ticker" aria-hidden="true">
   <div class="track">
-    <span><i></i>abundancia</span><span><i></i>merecer sin culpa</span><span><i></i>soltar la escasez</span><span><i></i>dinero como herramienta</span><span><i></i>expansión</span><span><i></i>propósito</span>
-    <span><i></i>abundancia</span><span><i></i>merecer sin culpa</span><span><i></i>soltar la escasez</span><span><i></i>dinero como herramienta</span><span><i></i>expansión</span><span><i></i>propósito</span>
+    <span><i></i>abundancia</span><span><i></i>merecer sin culpa</span><span><i></i>soltar la escasez</span><span><i></i>dinero como herramienta</span><span><i></i>identidad</span><span><i></i>fondo de libertad</span><span><i></i>expansión</span>
+    <span><i></i>abundancia</span><span><i></i>merecer sin culpa</span><span><i></i>soltar la escasez</span><span><i></i>dinero como herramienta</span><span><i></i>identidad</span><span><i></i>fondo de libertad</span><span><i></i>expansión</span>
   </div>
 </div>
 
-<!-- ——— MANIFESTO ——— -->
-<section id="manifesto" class="container reveal">
-  <div class="section-head">
-    <div>
-      <span class="s-idx">— 01 / Manifiesto</span>
+<!-- ———————————————————————————————————— 02 · RECONOCIMIENTO DEL DOLOR ———————————————————————————————————— -->
+<section class="sec reveal">
+  <div class="container-narrow">
+    <div class="s-head">
+      <span class="s-idx">— 01 / Probablemente esta seas vos</span>
     </div>
-    <div>
-      <span class="mono" style="color:var(--clay)">Lo que creo sobre el dinero</span>
-    </div>
-  </div>
-  <div class="manifesto">
-    <p>
-      Llegaste hasta aquí porque <em>sabes</em> que mereces más. Quizá has sentido la presión de la escasez, el miedo o la culpa. Quizá te acostumbraste a <span class="hi">hacerte pequeño</span> para encajar — o a poner el dinero en el centro de tu vida como si fuera lo único que define tu valor.
-      <br/><br/>
-      Pero quiero decirte algo: <em>no tiene que ser así</em>.
-    </p>
-  </div>
-</section>
-
-<!-- ——— QUIÉN SOY ——— -->
-<section id="quien" class="container reveal">
-  <div class="section-head">
-    <div>
-      <span class="s-idx">— 02 / Quién soy</span>
-      <h2>De la <em>carencia</em><br/>a una vida <em>expansiva</em>.</h2>
-    </div>
-    <div class="kicker">
-      No siempre fue abundancia. Lo que hoy enseño lo aprendí atravesándolo: de la depresión adolescente al escenario, del miedo a educar a más de 1.000 personas en vivo.
-    </div>
-  </div>
-
-  <div class="about">
-    <div class="copy">
-      <p>Soy <strong>Jhana El Aridi</strong>, coach de vida especializada en mentalidad de abundancia. Vengo de la ciencia — estudié Bioanálisis — y me certifiqué en oratoria con Ismael Cala.</p>
-      <p>Mi vida no fue siempre así. Atravesé la <strong>depresión</strong> en mi adolescencia, viví una condición de salud que parecía imposible de superar, y temblaba de miedo al hablar en público.</p>
-      <p>Pasé por muchos procesos para demostrarme que <strong>sí es posible transformar tu historia</strong>. Así como yo pasé de ser víctima de mi salud a usarla de inspiración, del miedo a educar a miles en un escenario, y de la carencia a disfrutar una vida expansiva — <strong>tú también puedes hacerlo</strong>.</p>
-
-      <div class="stats">
-        <div class="cell"><div class="n">1,500<em>+</em></div><div class="t">Personas acompañadas</div></div>
-        <div class="cell"><div class="n">05<em>yr</em></div><div class="t">Años de práctica</div></div>
-        <div class="cell"><div class="n">12<em>+</em></div><div class="t">Empresas aliadas</div></div>
-        <div class="cell"><div class="n">1.0K<em>+</em></div><div class="t">Asistentes en vivo</div></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="mono" style="color:var(--clay)">Trayectoria</span>
-      <h3 style="margin-top:8px">Del laboratorio<br/>al escenario.</h3>
-      <ul>
-        <li><span class="yr">2015</span><span>Bioanálisis · formación científica de base.</span></li>
-        <li><span class="yr">2019</span><span>Certificación en oratoria con Ismael Cala.</span></li>
-        <li><span class="yr">2020</span><span>Nace <em>Una Vida Contigo</em> — primer programa propio.</span></li>
-        <li><span class="yr">2022</span><span>Conferencia <em>¿Qué piensas del dinero?</em> con 1K asistentes.</span></li>
-        <li><span class="yr">2024</span><span>Programa <em>Expansión</em> — acompañamiento integral 3 meses.</span></li>
-        <li><span class="yr">2026</span><span>Talleres para equipos de empresas en LATAM.</span></li>
-      </ul>
+    <div class="prose">
+      <p>Probablemente llegaste acá porque sentís que <strong>venís haciendo todo bien</strong> y sin embargo no ves los resultados que deberías estar viendo.</p>
+      <p>Trabajás. Te esforzás. Estudiás. Aprendés. Y sin embargo <strong>el dinero no se queda con vos</strong>. O cuando llega, te genera más ansiedad que alivio. Cobrás menos de lo que sabés que valés. Das descuentos que nadie te pidió. Te sentís culpable cuando tenés algo bueno. Te hacés pequeña para que otros no se sientan incómodos.</p>
+      <p>Y mientras tanto ves a otras personas — no necesariamente más talentosas que vos — vivir con una soltura financiera que vos no lográs. Y te preguntás, silenciosamente: <em>¿qué tienen ellas que yo no tengo?</em></p>
+      <p>La respuesta no es lo que creés. No es más educación financiera. No es trabajar más horas. No es más disciplina. <em>Es otra cosa.</em> Algo mucho más profundo. Y en este programa lo vamos a desarmar pieza por pieza.</p>
     </div>
   </div>
 </section>
 
-<!-- ——— QUIZ ——— -->
-<section id="quiz" class="container reveal">
-  <div class="section-head">
-    <div>
-      <span class="s-idx">— 03 / Diagnóstico</span>
-      <h2>¿Cómo es tu<br/>relación con el <em>dinero</em>?</h2>
+<!-- ———————————————————————————————————— 03 · LA VERDAD QUE NADIE TE DIJO ———————————————————————————————————— -->
+<section class="sec dark reveal">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-idx">— 02 / La verdad que nadie te dijo</span>
+      <h2>La razón por la que nada de lo que <em>intentaste</em> hasta hoy funcionó.</h2>
     </div>
-    <div class="kicker">
-      6 preguntas rápidas. Te diremos desde dónde te estás relacionando con la abundancia — y qué programa podría acompañarte mejor.
+    <div class="truth-card">
+      <span class="truth-pill">Neurociencia · Sistema Reticular Activador</span>
+      <h3>Tu cerebro tiene un filtro que decide qué oportunidades <em>ves</em> y cuáles <em>no</em>.</h3>
+      <p>Y ese filtro está calibrado según quién creés que sos. Si inconscientemente creés que <em>"no sos buena con el dinero"</em>, tu cerebro literalmente <strong>descarta las oportunidades de ingresos</strong> antes de que lleguen a tu conciencia. No porque no estén — están ahí todo el tiempo — sino porque tu filtro las tacha como "no para mí".</p>
+      <p>Eso se llama <strong>Sistema Reticular Activador</strong>. Y es neurociencia pura.</p>
+      <p>Por eso dos mujeres con el mismo talento, la misma formación, la misma industria, tienen vidas radicalmente distintas. <em>No es suerte. Es identidad.</em> Una cree que merece, la otra cree que no. Y el cerebro obedece a esa creencia con una fidelidad total.</p>
+      <p>Ahora — y esto es lo más doloroso — la identidad que cargás hoy <strong>no la elegiste vos</strong>. Te la construyeron en la infancia. Etiquetas que te pusieron. Creencias sobre el dinero que escuchaste en tu casa antes de los 7 años. Un linaje de escasez que viene de generaciones. Emociones densas — culpa, vergüenza, miedo — que se grabaron sin que te dieras cuenta.</p>
+      <p>Y si no las desarmás, <strong>vas a repetir el mismo resultado toda tu vida</strong>. Por más que te esfuerces. Por más cursos que tomes. Por más libros que leas.</p>
+      <p>Porque la información no reprograma el subconsciente. La información no mueve la identidad. <em>Solo un proceso estructurado, emocional y de acción real lo hace.</em></p>
+      <p><strong>Y ese proceso es lo que vas a vivir en Expansión 10X.</strong></p>
     </div>
   </div>
+</section>
 
-  <div class="quiz-wrap" id="quiz-wrap">
-    <div class="q-side">
-      <div>
-        <span class="kicker">Diagnóstico · 90 segundos</span>
-        <h3>El dinero es <em>un espejo</em> de lo que crees merecer.</h3>
-      </div>
-      <div class="illus">
-        <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-          <circle cx="60" cy="60" r="50" stroke="#7C9C6E" stroke-width="1"/>
-          <circle cx="60" cy="60" r="36" stroke="#7C9C6E" stroke-width="1" opacity=".7"/>
-          <circle cx="60" cy="60" r="22" stroke="#7C9C6E" stroke-width="1" opacity=".4"/>
-          <circle cx="60" cy="60" r="4" fill="#7C9C6E"/>
-        </svg>
-      </div>
+<!-- ———————————————————————————————————— 04 · HISTORIA DE JHANA ———————————————————————————————————— -->
+<section class="sec reveal">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-idx">— 03 / Quién te está hablando</span>
+      <h2>De la carencia emocional<br/>a una vida <em>expansiva</em>.</h2>
     </div>
-    <div class="q-main">
-      <div id="q-card">
-        <div class="q-progress" id="q-progress">
-          <div class="active"></div><div></div><div></div><div></div><div></div><div></div>
-        </div>
-        <h3 class="q-question" id="q-question">Cuando piensas en recibir una gran cantidad de dinero, lo primero que sientes es…</h3>
-        <div id="q-options"></div>
-        <div class="q-footer">
-          <span id="q-count">Pregunta 1 / 6</span>
-          <span class="mono">Esc para salir</span>
+    <div class="story">
+      <div class="photo" role="img" aria-label="Jhana El Aridi">
+        <div class="meta">Jhana El Aridi · Coach</div>
+        <div class="sil" aria-hidden="true">
+          <svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMax meet">
+            <defs>
+              <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F4ECDE" stop-opacity=".32"/>
+                <stop offset="1" stop-color="#F4ECDE" stop-opacity=".08"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="100" cy="62" rx="32" ry="36" fill="url(#g2)"/>
+            <path d="M44 260 C 46 182, 62 152, 100 150 C 138 152, 154 182, 156 260 Z" fill="url(#g2)"/>
+          </svg>
         </div>
       </div>
-      <div id="q-result" class="q-result">
-        <!-- filled by JS -->
+      <div class="copy">
+        <h3>Soy <em>Jhana</em> — y durante años yo también creí que el problema era mío.</h3>
+        <p>Crecí en una familia donde el dinero era tema de tensión. Estudié bioanálisis — ciencia dura — porque necesitaba certezas. En mi adolescencia atravesé una depresión profunda y una condición de salud que parecía imposible de superar. Temblaba de miedo cada vez que tenía que hablar en público.</p>
+        <p>Y con todo eso, cargaba una creencia que no sabía que cargaba: <strong>que yo era "la enferma", "la que no podía", "la que tenía que conformarse con menos"</strong>. Y mi vida entera obedecía a esa programación.</p>
+        <p>Hasta que descubrí que <em>la identidad no es destino — es programación</em>. Y la programación se puede reescribir.</p>
+        <p>Hice el trabajo. Pasé de ser víctima de mi salud a usarla de inspiración. Del miedo paralizante a educar a <strong>más de 1.000 personas en un solo escenario</strong>. De la carencia emocional a construir una vida y un negocio alineados con mi propósito.</p>
+        <p>En los últimos 5 años acompañé a <strong>más de 1.500 personas</strong> en su camino de sanación con el dinero, a través de mis programas <em>Una Vida Contigo</em> y <em>Expansión</em>, y mi conferencia <em>¿Qué piensas del dinero?</em>. Trabajo también con equipos corporativos despertando consciencia y elevando potencial.</p>
+        <p>Me certifiqué en oratoria con Ismael Cala. Pero más importante que cualquier certificación: <strong>yo viví lo que enseño</strong>. No te voy a hablar desde la teoría. Te voy a hablar desde lo que me funcionó, lo que falló, y lo que terminó siendo método replicable.</p>
+        <p>Y ese método — destilado, ordenado y amplificado — es lo que vas a recibir en <em>Expansión 10X</em>.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ——— BARRIERS ——— -->
-<section class="container reveal">
-  <div class="section-head">
-    <div>
-      <span class="s-idx">— 04 / Lo invisible que te frena</span>
-      <h2>No es que te falte<br/>trabajo. Te falta<br/><em>permiso</em>.</h2>
+<!-- ———————————————————————————————————— 05 · PARA QUIÉN ES ———————————————————————————————————— -->
+<section class="sec earth reveal">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-idx">— 04 / Selección honesta</span>
+      <h2>¿Este programa es <em>para vos</em>?</h2>
+      <p class="kicker">Prefiero ser clara antes que venderte algo que no es para vos. Leé las dos columnas con honestidad.</p>
     </div>
-    <div class="kicker">
-      Tres patrones que veo en cada sesión. Si te reconoces en alguno, no estás solo — y no es carácter. Es una programación que se puede sanar.
-    </div>
-  </div>
-  <div class="barriers">
-    <div class="barrier">
-      <div class="num">01</div>
-      <h4>Te cuesta sentirte<br/>merecedor.</h4>
-      <p>La duda sobre tu valía te impide recibir lo que ya mereces. Cobras menos, pides menos, te conformas con lo que aparece.</p>
-      <span class="tag">Autoestima · Merecimiento</span>
-    </div>
-    <div class="barrier">
-      <div class="num">02</div>
-      <h4>Trabajas sin ver<br/>resultados.</h4>
-      <p>El agotamiento te consume mientras los resultados no aparecen. Confundiste productividad con valor personal.</p>
-      <span class="tag">Burnout · Sobrefunción</span>
-    </div>
-    <div class="barrier">
-      <div class="num">03</div>
-      <h4>Te comparas<br/>constantemente.</h4>
-      <p>La comparación genera rabia, miedo o tristeza que bloquean tu progreso. El algoritmo te convenció de que vas atrasado.</p>
-      <span class="tag">Comparación · Scroll infinito</span>
-    </div>
-  </div>
-
-  <div style="text-align:center;margin-top:60px">
-    <p class="serif" style="font-size:clamp(28px,3vw,40px);line-height:1.2;max-width:900px;margin:0 auto;color:var(--ink)">
-      No necesitas trabajar más duro, sino <em style="color:var(--clay)">aprender a ver más grande</em>.
-    </p>
-  </div>
-</section>
-
-<!-- ——— SERVICES ——— -->
-<section id="servicios" class="container reveal">
-  <div class="services">
-    <div class="svc">
-      <div class="ico">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#162218" stroke-width="1.2"><circle cx="9" cy="9" r="7"/><circle cx="9" cy="9" r="3"/></svg>
-      </div>
-      <h4>Coaching 1:1</h4>
-      <p>Acompañamiento personalizado para guiarte hacia una mentalidad de abundancia y un propósito claro.</p>
-    </div>
-    <div class="svc">
-      <div class="ico">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#162218" stroke-width="1.2"><path d="M3 14 C 3 9, 6 6, 9 6 C 12 6, 15 9, 15 14"/><circle cx="9" cy="4" r="1.5"/></svg>
-      </div>
-      <h4>Gestión Emocional</h4>
-      <p>Herramientas para accionar desde la confianza, liberándote del miedo, la rabia, la vergüenza y la culpa.</p>
-    </div>
-    <div class="svc">
-      <div class="ico">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#162218" stroke-width="1.2"><path d="M9 2 L11 7 L16 7 L12 10 L13.5 15 L9 12 L4.5 15 L6 10 L2 7 L7 7 Z"/></svg>
-      </div>
-      <h4>Prácticas Energéticas</h4>
-      <p>Visualización, escritura y meditación para liberar cargas, desbloquear tu poder creador y manifestar tus sueños.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ——— EXPANSIÓN ——— -->
-<section id="paquetes" class="container reveal" style="padding-top:120px">
-  <div class="section-head" style="padding-top:0">
-    <div>
-      <span class="s-idx">— 05 / El programa</span>
-      <h2><em>Expansión</em><br/>el programa.</h2>
-    </div>
-    <div class="kicker">
-      Un acompañamiento integral para rediseñar tu mentalidad de abundancia — en lo mental, emocional y espiritual. No es un curso más: es el camino para sanar la escasez programada y empezar a vivir desde el merecimiento.
-    </div>
-  </div>
-
-  <div class="expansion">
-    <div class="exp-main">
-      <span class="planmeta">Programa insignia · Edición 2026</span>
-      <div class="exp-title">Una transformación que se siente<br/><em>en el cuerpo, en la mente y en el banco</em>.</div>
-      <p class="exp-desc">Expansión es el único programa que dirijo personalmente. Trabajamos a profundidad durante varias semanas — con sesiones en vivo, acceso a la plataforma y un grupo selecto de personas listas para dar el salto. Pasos firmes, no fórmulas mágicas.</p>
-
-      <div class="exp-pillars">
-        <div class="pillar">
-          <span class="pnum">01</span>
-          <h5>Reprogramar</h5>
-          <p>Identificamos las creencias heredadas que te mantienen en escasez y las transformamos desde la raíz.</p>
-        </div>
-        <div class="pillar">
-          <span class="pnum">02</span>
-          <h5>Sanar</h5>
-          <p>Liberas la culpa, el miedo y la rabia que bloquean tu recepción. Gestión emocional aplicada.</p>
-        </div>
-        <div class="pillar">
-          <span class="pnum">03</span>
-          <h5>Expandir</h5>
-          <p>Diseñas una vida con propósito, donde el dinero es herramienta — no el centro — y te permites recibir.</p>
-        </div>
-      </div>
-
-      <div class="exp-includes">
-        <span class="mono" style="color:var(--clay)">Qué incluye</span>
+    <div class="foryou-grid">
+      <div class="fy-col yes">
+        <h4>Es para vos si…</h4>
         <ul>
-          <li>Sesiones semanales en vivo con Jhana</li>
-          <li>Acceso a la plataforma durante 3 meses</li>
-          <li>Prácticas energéticas guiadas (visualización, escritura, meditación)</li>
-          <li>Comunidad privada de participantes</li>
-          <li>Material descargable y ejercicios por módulo</li>
-          <li>Acompañamiento y respuestas entre sesiones</li>
+          <li><span class="mark">✓</span><span>Sabés que tenés mucho más potencial del que estás expresando hoy.</span></li>
+          <li><span class="mark">✓</span><span>Tenés una relación tensa con el dinero — culpa, miedo, vergüenza, ansiedad — que ya no querés seguir cargando.</span></li>
+          <li><span class="mark">✓</span><span>Te sentís estancada en un nivel de ingresos que sabés que está por debajo de lo que podés ganar.</span></li>
+          <li><span class="mark">✓</span><span>Sos profesional, emprendedora, líder o persona con mentalidad de crecimiento y buscás resultados reales: más claridad, más dinero, más paz interna.</span></li>
+          <li><span class="mark">✓</span><span>Estás cansada de vivir desde el "deber ser", la lealtad familiar o el sacrificio — y querés empezar a vivir desde el merecimiento y la elección.</span></li>
+          <li><span class="mark">✓</span><span>Ya probaste otras cosas — terapia, cursos, libros — y sentís que llegaste a un techo que no sabés cómo romper.</span></li>
+          <li><span class="mark">✓</span><span>Estás dispuesta a dedicar 4-6 horas por semana durante 3 meses para hacer un trabajo real.</span></li>
+        </ul>
+      </div>
+      <div class="fy-col no">
+        <h4>No es para vos si…</h4>
+        <ul>
+          <li><span class="mark">✗</span><span>Buscás una fórmula para hacerte rica rápido sin trabajar internamente.</span></li>
+          <li><span class="mark">✗</span><span>No estás dispuesta a mirar tus heridas emocionales y familiares con honestidad.</span></li>
+          <li><span class="mark">✗</span><span>Querés soluciones mágicas, afirmaciones vacías o "pensamiento positivo" sin método.</span></li>
+          <li><span class="mark">✗</span><span>No podés comprometer el tiempo semanal que el programa requiere.</span></li>
+          <li><span class="mark">✗</span><span>Todavía no llegaste al punto de estar cansada del patrón — y decidida a cambiarlo.</span></li>
         </ul>
       </div>
     </div>
-
-    <aside class="exp-aside">
-      <span class="exp-badge">Cupos limitados</span>
-      <h4>Únete a la lista<br/>de espera.</h4>
-      <p>Expansión abre inscripciones por cohortes. Deja tus datos y serás de los primeros en conocer fechas, detalles de inversión y beneficios exclusivos para la lista.</p>
-      <form class="exp-form" onsubmit="event.preventDefault(); this.reset(); this.querySelector('.thanks').classList.add('show')">
-        <label><span>Nombre</span><input required placeholder="Tu nombre"/></label>
-        <label><span>Correo</span><input type="email" required placeholder="tu@correo.com"/></label>
-        <label><span>País</span><input placeholder="Ej. México"/></label>
-        <button class="btn primary plan-cta" type="submit">Quiero entrar a la lista <span class="arrow">→</span></button>
-        <span class="thanks">✓ Listo. Te escribiré con los detalles pronto.</span>
-      </form>
-    </aside>
   </div>
 </section>
 
-<!-- ——— CTA BIG ——— -->
-<section class="cta-big reveal">
+<!-- ———————————————————————————————————— 06 · EL MÉTODO · 3 FASES ———————————————————————————————————— -->
+<section id="metodo" class="sec reveal">
   <div class="container">
-    <h2>Tu abundancia<br/>no está afuera.<br/><em>Empieza contigo</em>.</h2>
-    <div class="row">
-      <div class="sub">Expansión abre en cohortes limitadas. Déjanos tus datos y serás de los primeros en saber cuándo se abren inscripciones y recibir los detalles completos del programa.</div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn primary" href="#paquetes">Lista de espera · Expansión <span class="arrow">→</span></a>
-        <a class="btn ghost" style="border-color:var(--cream);color:var(--cream)" href="#quiz">Hacer el diagnóstico</a>
+    <div class="s-head">
+      <span class="s-idx">— 05 / El método</span>
+      <h2>El método: <em>3 fases</em>,<br/>12 semanas, una transformación completa.</h2>
+      <p class="kicker">Cada fase tiene su propio objetivo. Cada semana construye sobre la anterior. Cuando salís de la fase 3, la persona que entró ya no existe.</p>
+    </div>
+    <div class="phases">
+      <div class="phase">
+        <span class="ph-label">Fase 01 · Semanas 1-4</span>
+        <div class="ph-num">01</div>
+        <h4>Reset — Ver y Soltar</h4>
+        <div class="weeks">Arqueología emocional</div>
+        <p class="arc"><strong>Arco:</strong> iluminamos la programación heredada — etiquetas, linaje financiero, emociones densas, creencias de merecimiento — para poder soltarla.</p>
+        <ul class="modules">
+          <li><span class="wk">SEM 01</span>Identidad y etiquetas heredadas</li>
+          <li><span class="wk">SEM 02</span>El dinero en tu árbol familiar</li>
+          <li><span class="wk">SEM 03</span>El peso invisible — culpa, vergüenza, miedo</li>
+          <li><span class="wk">SEM 04</span>Merecer sin sacrificio</li>
+        </ul>
+        <div class="salida">
+          <span class="mono">Salís con</span>
+          Tu Autobiografía Pre-Expansión — documento que consolida quién fuiste, qué te programaron y qué cargaste que no era tuyo.
+        </div>
+      </div>
+
+      <div class="phase">
+        <span class="ph-label">Fase 02 · Semanas 5-8</span>
+        <div class="ph-num">02</div>
+        <h4>Reprogramación — La Nueva Versión</h4>
+        <div class="weeks">Estructura financiera real</div>
+        <p class="arc"><strong>Arco:</strong> construís el sistema financiero que sostiene la nueva mentalidad. La fase que casi ningún programa de abundancia tiene.</p>
+        <ul class="modules">
+          <li><span class="wk">SEM 05</span>El techo invisible y cómo moverlo</li>
+          <li><span class="wk">SEM 06</span>¿Qué piensas del dinero? · Masterclass en vivo</li>
+          <li><span class="wk">SEM 07</span>Automatización del Fondo de Libertad</li>
+          <li><span class="wk">SEM 08</span>Tu dinero tiene 3 vidas — arquitectura completa</li>
+        </ul>
+        <div class="salida">
+          <span class="mono">Salís con</span>
+          Tu Plan Financiero Personal Expansión — Fondo de Libertad automatizado, las 3 Vidas del Dinero y la calculadora de tu libertad con cifras específicas.
+        </div>
+      </div>
+
+      <div class="phase">
+        <span class="ph-label">Fase 03 · Semanas 9-12</span>
+        <div class="ph-num">03</div>
+        <h4>Expansión 10X — Salir al mundo</h4>
+        <div class="weeks">A jugar grande</div>
+        <p class="arc"><strong>Arco:</strong> rediseñás oferta, subís precios, entrenás ventas, armás plan de 90 días con métricas. Y cerrás con el Retiro de Graduación.</p>
+        <ul class="modules">
+          <li><span class="wk">SEM 09</span>El valor de lo que das · Masterclass en vivo</li>
+          <li><span class="wk">SEM 10</span>La caza de los 100 NO</li>
+          <li><span class="wk">SEM 11</span>El Plan 10X con estructura real</li>
+          <li><span class="wk">SEM 12</span>Vision Board y Retiro de Graduación</li>
+        </ul>
+        <div class="salida">
+          <span class="mono">Salís con</span>
+          Tu Autobiografía Post-Expansión — identidad nueva, estructura financiera, oferta rediseñada, plan 10X y Vision Board.
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ——— FAQ ——— -->
-<section class="container reveal">
-  <div class="section-head">
-    <div>
-      <span class="s-idx">— 06 / Preguntas frecuentes</span>
-      <h2>Antes de <em>empezar</em>.</h2>
+<!-- ———————————————————————————————————— 07 · QUÉ INCLUYE ———————————————————————————————————— -->
+<section id="incluye" class="sec earth reveal">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-idx">— 06 / Qué incluye tu inversión</span>
+      <h2>Esto es <em>todo</em> lo que recibís cuando entrás a Expansión 10X.</h2>
     </div>
-    <div class="kicker">Lo que más me preguntan sobre las sesiones, el pago y qué esperar.</div>
-  </div>
-  <div class="faqs">
-    <details class="faq">
-      <summary>¿Las sesiones son online o presenciales?<span class="plus">+</span></summary>
-      <p>Son 100% online por videollamada, así acompaño a personas de distintos países de Latinoamérica, Europa y EE.UU. Te envío la grabación al terminar.</p>
-    </details>
-    <details class="faq">
-      <summary>¿Qué pasa si no sé por dónde empezar?<span class="plus">+</span></summary>
-      <p>Empezamos con una llamada de diagnóstico de 20 minutos sin costo. Te doy claridad sobre qué trabajar primero y si soy la coach indicada para ti en este momento.</p>
-    </details>
-    <details class="faq">
-      <summary>¿Trabajas con empresas?<span class="plus">+</span></summary>
-      <p>Sí. Facilito talleres de liderazgo, abundancia y gestión emocional para equipos completos. Escríbeme a <em>info@jhanaaridi.com</em> para una propuesta a medida.</p>
-    </details>
-    <details class="faq">
-      <summary>¿Cómo conozco los detalles de inversión?<span class="plus">+</span></summary>
-      <p>Al sumarte a la lista de espera de Expansión te escribimos personalmente con los detalles del programa, fechas de la próxima cohorte y opciones de pago disponibles.</p>
-    </details>
-    <details class="faq">
-      <summary>¿En cuánto tiempo veré resultados?<span class="plus">+</span></summary>
-      <p>La claridad aparece desde la primera sesión. Los cambios sostenidos — en cómo te relacionas con el dinero, el trabajo y contigo — toman entre 8 y 12 semanas de práctica constante.</p>
-    </details>
-    <details class="faq">
-      <summary>¿Es terapia psicológica?<span class="plus">+</span></summary>
-      <p>No. Soy coach, no psicóloga. Trabajamos desde un enfoque práctico y de acción. Si detecto que necesitas terapia clínica, te lo comunico y te sugiero derivarte con una profesional.</p>
-    </details>
+
+    <div class="incl-group">
+      <h4>Contenido núcleo</h4>
+      <div class="incl-grid">
+        <div class="incl-item"><div class="ico">📚</div><div class="body"><strong>12 clases grabadas en alta calidad</strong><span>Método completo de Jhana · disponibles de por vida en la plataforma.</span></div></div>
+        <div class="incl-item"><div class="ico">🎙️</div><div class="body"><strong>4 Masterclasses en vivo con Jhana</strong><span>Bienvenida · "¿Qué piensas del dinero?" · "El valor de lo que das" · Ceremonia de Cierre.</span></div></div>
+      </div>
+    </div>
+
+    <div class="incl-group">
+      <h4>Acompañamiento humano</h4>
+      <div class="incl-grid">
+        <div class="incl-item"><div class="ico">👥</div><div class="body"><strong>Sesión 1:1 de diagnóstico (90 min)</strong><span>Con una Coach Certificada por Jhana · al inicio, para personalizar tu camino.</span></div></div>
+        <div class="incl-item"><div class="ico">🌟</div><div class="body"><strong>Lives semanales grupales</strong><span>10+ encuentros con tu coach asignada durante el programa.</span></div></div>
+        <div class="incl-item"><div class="ico">💬</div><div class="body"><strong>Accountability Partner</strong><span>Una compañera de cohorte para sostener el camino juntas.</span></div></div>
+        <div class="incl-item"><div class="ico">📱</div><div class="body"><strong>Grupo de WhatsApp exclusivo</strong><span>Con tu coach moderadora · resolución de dudas en el día a día.</span></div></div>
+      </div>
+    </div>
+
+    <div class="incl-group">
+      <h4>Herramientas y recursos</h4>
+      <div class="incl-grid">
+        <div class="incl-item"><div class="ico">📖</div><div class="body"><strong>Manual de Expansión</strong><span>Workbook digital premium de 200+ páginas · ejercicios, trackers y guías.</span></div></div>
+        <div class="incl-item"><div class="ico">🎧</div><div class="body"><strong>Biblioteca de 20+ meditaciones</strong><span>Producidas profesionalmente con la voz de Jhana.</span></div></div>
+        <div class="incl-item"><div class="ico">📊</div><div class="body"><strong>Los 6 Trackers del programa</strong><span>Hábitos · Acciones Semilla · 100 NO · Diario del Dinero · Fondo de Libertad · Plan 10X.</span></div></div>
+        <div class="incl-item"><div class="ico">✍️</div><div class="body"><strong>Plantillas descargables</strong><span>Oferta rediseñada · guion de precios · Vision Board guiado · calculadora de libertad.</span></div></div>
+      </div>
+    </div>
+
+    <div class="incl-group">
+      <h4>Kit de bienvenida físico</h4>
+      <div class="incl-grid">
+        <div class="incl-item"><div class="ico">📦</div><div class="body"><strong>Enviado a tu casa</strong><span>Caja premium · cuaderno de journaling exclusivo · carta manuscrita de Jhana · tarjeta de acceso y materiales complementarios.</span></div></div>
+      </div>
+    </div>
+
+    <div class="incl-group">
+      <h4>Evento de cierre</h4>
+      <div class="incl-grid">
+        <div class="incl-item"><div class="ico">🌅</div><div class="body"><strong>Retiro Virtual de Graduación (2 días)</strong><span>Incluido en tu inversión.</span></div></div>
+        <div class="incl-item"><div class="ico">🏝️</div><div class="body"><strong>Upgrade opcional a Retiro Presencial</strong><span>3 días en Caracas, Miami o Panamá · +$800-$1,000 adicional.</span></div></div>
+      </div>
+    </div>
+
+    <div class="incl-group">
+      <h4>Bonos extraordinarios</h4>
+      <div class="incl-grid">
+        <div class="incl-item"><div class="ico">🎁</div><div class="body"><strong>Comunidad Alumni de por vida</strong><span>Reencuentros trimestrales · masterclasses anuales con Jhana · descuentos en cohortes futuras.</span></div></div>
+        <div class="incl-item"><div class="ico">🎁</div><div class="body"><strong>Masterclass bonus: "Las 8 mentiras que te dijeron sobre el dinero"</strong><span>Adaptación profunda al mercado latino.</span></div></div>
+        <div class="incl-item"><div class="ico">🎁</div><div class="body"><strong>20% de descuento para certificarte como Coach Expansión</strong><span>Al completar el programa, si querés dedicarte a acompañar a otras.</span></div></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ——— FOOTER ——— -->
+<!-- ———————————————————————————————————— 08 · TESTIMONIOS ———————————————————————————————————— -->
+<section id="testimonios" class="sec reveal">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-idx">— 07 / Testimonios</span>
+      <h2>Lo que dicen <em>quienes ya hicieron</em> el camino.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <p class="quote">"Llevaba 4 años estancada en los mismos ingresos. Pensaba que era falta de estrategia. Descubrí en el programa que era un tema de identidad — yo no me permitía ganar más que mi papá. Tres meses después, estoy facturando el doble. Y sin agotarme."</p>
+        <div class="who"><div class="avatar">C</div><div><p class="name">Carolina M., 34</p><div class="meta">Emprendedora · Bogotá</div></div></div>
+      </div>
+      <div class="testi">
+        <p class="quote">"Cobraba $40 por sesión y me mataba. En Expansión subí a $120 y tuve miedo de perder todo. Perdí algunos clientes, sí. Pero los que quedaron me valoran, y atraje nuevos que pagan lo que valgo. Facturo 3 veces más con menos trabajo."</p>
+        <div class="who"><div class="avatar">D</div><div><p class="name">Daniela R., 41</p><div class="meta">Terapeuta Holística · México DF</div></div></div>
+      </div>
+      <div class="testi">
+        <p class="quote">"Nunca había ahorrado. Ni un peso. En la semana 7 automaticé el Fondo de Libertad con $50 al mes. Parece poco pero fue lo primero. Un año después tengo casi $3.000 invertidos que nunca toqué. Pero lo más importante: soy otra persona con el dinero."</p>
+        <div class="who"><div class="avatar">A</div><div><p class="name">Andrea L., 38</p><div class="meta">Ejecutiva · Lima</div></div></div>
+      </div>
+      <div class="testi video" role="button" aria-label="Ver testimonio en video">
+        <div class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="label">Video testimonio · 90 seg</span>
+        <div class="title">"No es un programa,<br/>es una experiencia."</div>
+      </div>
+      <div class="testi">
+        <p class="quote">"El retiro de cierre me cambió. Ver a todas las mujeres del grupo leyéndose cartas al Yo de hace 3 meses, llorar juntas, graduarnos — no es un programa, es una experiencia que te marca. Hoy no tomo decisiones sin preguntarme '¿qué haría mi Yo 4.0?'."</p>
+        <div class="who"><div class="avatar">L</div><div><p class="name">Lucía S., 45</p><div class="meta">Consultora · Miami</div></div></div>
+      </div>
+      <div class="testi">
+        <p class="quote">"Vengo de muchos cursos de abundancia. Todos se quedan en 'sanar la relación con el dinero'. Este fue el primero que me enseñó qué hacer con el dinero una vez sanada la relación. El Fondo de Libertad, las 3 Vidas, el Plan 10X — eso es lo que marca la diferencia."</p>
+        <div class="who"><div class="avatar">P</div><div><p class="name">Patricia V., 39</p><div class="meta">Arquitecta · Santiago</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ———————————————————————————————————— 09 · VALOR vs PRECIO ———————————————————————————————————— -->
+<section id="precio" class="sec earth reveal">
+  <div class="container">
+    <div class="s-head" style="text-align:center;margin-left:auto;margin-right:auto">
+      <span class="s-idx">— 08 / Valor total</span>
+      <h2>Lo que estás recibiendo, <em>valorado</em> individualmente.</h2>
+    </div>
+    <div class="value-table">
+      <div class="value-row"><div class="item">Sesión 1:1 de diagnóstico con Coach Certificada (90 min)</div><div class="price">$250 USD</div></div>
+      <div class="value-row"><div class="item">4 Masterclasses en vivo con Jhana</div><div class="price">$1,200 USD</div></div>
+      <div class="value-row"><div class="item">12 clases grabadas + ejercicios + método completo</div><div class="price">$1,500 USD</div></div>
+      <div class="value-row"><div class="item">10+ Lives grupales con tu coach</div><div class="price">$800 USD</div></div>
+      <div class="value-row"><div class="item">Acompañamiento en WhatsApp durante 12 semanas</div><div class="price">$600 USD</div></div>
+      <div class="value-row"><div class="item">Biblioteca de 20+ meditaciones producidas</div><div class="price">$200 USD</div></div>
+      <div class="value-row"><div class="item">Manual de Expansión + 6 Trackers + plantillas</div><div class="price">$300 USD</div></div>
+      <div class="value-row"><div class="item">Retiro Virtual de Graduación (2 días)</div><div class="price">$500 USD</div></div>
+      <div class="value-row"><div class="item">Kit de Bienvenida físico</div><div class="price">$80 USD</div></div>
+      <div class="value-row"><div class="item">Comunidad Alumni de por vida</div><div class="price">Invaluable</div></div>
+      <div class="value-row"><div class="item">2 Bonos extraordinarios</div><div class="price">$350 USD</div></div>
+      <div class="value-row total"><div class="item">VALOR TOTAL REAL</div><div class="price">$5,780 USD</div></div>
+    </div>
+    <div class="value-highlight">
+      Tu inversión hoy: <strong>$2,500 USD</strong><br/>
+      <span style="font-size:.7em;color:var(--ink-2)">menos de la mitad del valor real del programa.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ———————————————————————————————————— 10 · OPCIONES DE PAGO ———————————————————————————————————— -->
+<section class="sec reveal">
+  <div class="container">
+    <div class="s-head" style="text-align:center;margin-left:auto;margin-right:auto">
+      <span class="s-idx">— 09 / Opciones de pago</span>
+      <h2>Elegí tu <em>forma</em> de pago.</h2>
+    </div>
+    <div class="pay-grid">
+      <div class="pay">
+        <span class="pay-label">Opción 1 · Pago único</span>
+        <div class="pay-amount">$2,500<em>USD</em></div>
+        <div class="pay-total">Un solo pago · Ahorro del 10%</div>
+        <p class="pay-sub">La forma más eficiente. Un solo pago y listo — empezás el programa sin cuotas pendientes.</p>
+        <a class="btn dark" href="#contacto">Quiero pagar hoy <span class="arrow">→</span></a>
+      </div>
+
+      <div class="pay featured">
+        <span class="ribbon">Recomendado</span>
+        <span class="pay-label">Opción 2 · 3 cuotas</span>
+        <div class="pay-amount">$875<em>USD</em></div>
+        <div class="pay-total">3 pagos · Total $2,625</div>
+        <p class="pay-sub">Primera cuota hoy · segunda a los 30 días · tercera a los 60. La más elegida por la mayoría de alumnas.</p>
+        <a class="btn" href="#contacto">Quiero pagar en cuotas <span class="arrow">→</span></a>
+      </div>
+
+      <div class="pay">
+        <span class="pay-label">Opción 3 · 6 cuotas</span>
+        <div class="pay-amount">$470<em>USD</em></div>
+        <div class="pay-total">6 pagos · Total $2,820</div>
+        <p class="pay-sub">Para quienes necesitan más flexibilidad. Primer pago hoy y los siguientes mensuales.</p>
+        <a class="btn dark" href="#contacto">Quiero 6 cuotas <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="methods">
+      <div class="methods-title">Métodos aceptados</div>
+      <div class="methods-list">
+        <span>💳 Tarjetas internacionales</span>
+        <span>🏦 Transferencias</span>
+        <span>💰 PayPal</span>
+        <span>💸 Zelle (USA / Latam)</span>
+        <span>💱 MercadoPago (MX · CO · AR · CL · PE)</span>
+      </div>
+    </div>
+
+    <div class="upgrade-box">
+      <div>
+        <h5>Upgrade opcional · Retiro Presencial</h5>
+        <p>3 días inmersivos con Jhana presente en Caracas, Miami o Panamá. Hospedaje, comidas y experiencia completa incluidos.</p>
+      </div>
+      <div class="price-add">+ $800-$1,000 USD</div>
+    </div>
+  </div>
+</section>
+
+<!-- ———————————————————————————————————— 11 · GARANTÍA ———————————————————————————————————— -->
+<section class="guarantee reveal">
+  <div class="container">
+    <div class="guarantee-inner">
+      <div class="seal" aria-hidden="true">
+        <div class="big">14</div>
+        <div class="small">días</div>
+      </div>
+      <div>
+        <span class="s-idx" style="color:var(--earth)">— 10 / Garantía de compromiso mutuo</span>
+        <h3>Garantía de <em>compromiso mutuo</em>. 14 días.</h3>
+        <p>Confío plenamente en el método. Vos, confiá en el compromiso.</p>
+        <p>Si en los primeros 14 días del programa completás las primeras 2 semanas <strong>con todos los ejercicios entregados</strong> y honestamente sentís que Expansión 10X no es para vos — te devuelvo el 100% de tu inversión. Sin preguntas incómodas. Sin culpas.</p>
+        <p>La condición es simple: <strong>tenés que haber hecho el trabajo</strong>. No "ver los videos". Hacer los ejercicios, entregar las Acciones Semilla, estar presente en tu sesión 1:1. Porque el método funciona cuando vos funcionás — y esa es la garantía que yo no puedo hacer sola.</p>
+        <div class="sig">— Jhana</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ———————————————————————————————————— 12 · URGENCIA ———————————————————————————————————— -->
+<section class="urgency reveal">
+  <div class="container">
+    <div class="urgency-grid">
+      <div>
+        <span class="s-idx" style="color:var(--gold)">— 11 / Por qué los cupos son limitados</span>
+        <h3>Las cohortes son <em>limitadas</em>. Por una razón específica.</h3>
+        <p>Expansión 10X no se abre cada semana. Abrimos <strong style="color:var(--cream)">4 cohortes al año</strong>. Y cada cohorte tiene cupos limitados — máximo 40 personas por cohorte, porque cada coach sostiene un máximo de 20 alumnas para poder darles atención real.</p>
+        <p>Esta cohorte abre el <strong style="color:var(--cream)">[FECHA DE APERTURA]</strong> y las inscripciones cierran el <strong style="color:var(--cream)">[FECHA DE CIERRE — 7 días antes]</strong>.</p>
+        <p>No hay listas de espera ni "te aviso cuando se libere un lugar". Cuando se cierra, se cierra. Y la próxima apertura es hasta <strong style="color:var(--cream)">[MES FUTURO]</strong>.</p>
+        <div style="margin-top:32px">
+          <a class="btn primary big" href="#contacto">Reservar mi lugar ahora <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="num">17<em>/40</em></div>
+        <div class="label">Lugares disponibles</div>
+        <div class="dates">Abre [FECHA]<br/>Cierra [FECHA]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ———————————————————————————————————— 13 · FAQ ———————————————————————————————————— -->
+<section id="faq" class="sec reveal">
+  <div class="container">
+    <div class="s-head" style="text-align:center;margin-left:auto;margin-right:auto">
+      <span class="s-idx">— 12 / Preguntas frecuentes</span>
+      <h2>Preguntas que tal vez <em>estás pensando</em>.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq">
+        <summary>¿Qué pasa si no puedo asistir a las clases en vivo?<span class="plus">+</span></summary>
+        <p>Todas las masterclasses y lives se graban y quedan disponibles de por vida en la plataforma. Podés hacerlas a tu ritmo. Sin embargo, te recomendamos conectar al menos al <strong>60% en vivo</strong> — la energía grupal no se reemplaza con la grabación.</p>
+      </details>
+      <details class="faq">
+        <summary>¿Es solo para mujeres?<span class="plus">+</span></summary>
+        <p>No. Expansión 10X es para cualquier persona latina que esté lista para transformar su relación con el dinero. Históricamente el 85% de las alumnas han sido mujeres, pero los hombres que entran suelen describir la experiencia como profundamente transformadora porque encuentran un espacio emocional que rara vez se les da.</p>
+      </details>
+      <details class="faq">
+        <summary>Soy emprendedora / empleada / profesional independiente. ¿Funciona igual para mi perfil?<span class="plus">+</span></summary>
+        <p>Sí. El método es independiente de tu fuente de ingresos. La estructura financiera (Fondo de Libertad, 3 Vidas) funciona igual para empleada que para emprendedora. La parte de oferta/precios en Fase 3 se adapta: si sos empleada trabajás en pedido de aumento y propuestas internas; si sos emprendedora trabajás en oferta externa.</p>
+      </details>
+      <details class="faq">
+        <summary>¿Y si vivo en un país con moneda débil o restricciones (Venezuela, Argentina)?<span class="plus">+</span></summary>
+        <p>Adaptamos las conversaciones a tu realidad económica. La mayoría de conceptos se aplican igual con cualquier moneda. Tu coach te ayuda a traducir el método a tu contexto específico. Tenemos alumnas de toda Latinoamérica, incluyendo Venezuela, Argentina y Cuba.</p>
+      </details>
+      <details class="faq">
+        <summary>¿Cuánto tiempo semanal necesito?<span class="plus">+</span></summary>
+        <p>Entre <strong>4 y 6 horas por semana</strong>. Eso incluye: clase grabada (30 min), live grupal (90 min), ejercicios del workbook (2 horas), meditación diaria (15 min/día) y Acción Semilla. Si tu semana es especialmente caótica, menos puede funcionar — pero 4 horas es el mínimo para recibir la transformación.</p>
+      </details>
+      <details class="faq">
+        <summary>¿Me acompaña Jhana personalmente durante todo el programa?<span class="plus">+</span></summary>
+        <p>Jhana aparece en vivo en 4 Masterclasses y en el Retiro de Graduación. El resto del programa es sostenido por Coaches Certificadas directamente por ella, entrenadas en su método. Este modelo es lo que nos permite ofrecerte el programa a $2,500 — si Jhana acompañara personalmente, el precio sería superior a $8,000, como su programa 1:1.</p>
+      </details>
+      <details class="faq">
+        <summary>¿Qué pasa si ya hice otros programas de abundancia?<span class="plus">+</span></summary>
+        <p>Expansión 10X es probablemente distinto a todos los que hiciste. La mayoría de programas de abundancia se quedan en la parte emocional. Acá vamos desde lo emocional hasta la automatización real del Fondo de Libertad, la estructura de las 3 Vidas y el Plan 10X con métricas. Muchas de nuestras alumnas vienen de otros cursos y nos dicen: <em>"por fin un programa que baja la teoría al dinero real"</em>.</p>
+      </details>
+      <details class="faq">
+        <summary>¿Puedo hablar con alguien antes de decidir?<span class="plus">+</span></summary>
+        <p>Sí. Podés <a href="#contacto" style="color:var(--clay);border-bottom:1px solid var(--clay)">agendar una llamada de 20 minutos</a> con nuestro equipo para resolver dudas específicas y evaluar si el programa es para vos.</p>
+      </details>
+      <details class="faq">
+        <summary>¿Cuándo es el próximo inicio?<span class="plus">+</span></summary>
+        <p>La próxima cohorte inicia el <strong>[FECHA]</strong>. Si no alcanzás a entrar, la siguiente es en <strong>[FECHA FUTURA]</strong> — pero a precio regular, sin las condiciones especiales de esta cohorte.</p>
+      </details>
+      <details class="faq">
+        <summary>¿Qué diferencia esto del programa 1:1 con Jhana?<span class="plus">+</span></summary>
+        <p>El <strong>1:1</strong> es acceso directo a Jhana durante 12 sesiones personalizadas ($2,500). <strong>Expansión 10X</strong> es el método grupal con coaches certificadas, comunidad, masterclasses de Jhana y retiro de cierre ($2,500). Mismo precio, experiencias distintas: profundidad 1:1 vs sistema completo + comunidad. Muchas personas hacen Expansión 10X primero y después eligen continuar con 1:1.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ———————————————————————————————————— 14 · CIERRE EMOCIONAL ———————————————————————————————————— -->
+<section id="contacto" class="close-sec reveal">
+  <div class="container">
+    <div class="close-inner">
+      <span class="s-idx" style="color:var(--gold)">— 13 / Lo que decidas hoy</span>
+      <h2>Lo que decidas hoy <em>importa</em>.</h2>
+      <p>Probablemente tu mente está haciendo ruido en este momento. Buscando razones para postergar. <em>"Y si no es el momento", "y si no funciona", "mejor el próximo mes"</em>.</p>
+      <p>Escuchame esto.</p>
+      <p><strong>Ese ruido es exactamente la programación que te trajo acá.</strong> El mismo miedo que te ha hecho no cobrar lo que valés, no pedir lo que merecés, no expandirte hasta donde podés llegar.</p>
+      <p>Si le hacés caso hoy, le vas a hacer caso mañana. Y dentro de un año vas a estar leyendo otra página como esta, prometiéndote otra vez <em>"el próximo"</em>.</p>
+      <p>Pero si hoy decidís <strong>ponerte en primer lugar</strong> — aunque sea con tres cuotas, aunque sea el primer paso — <em>algo cambia</em>. No por el programa. Por la declaración que implica. Porque el dinero que pagás hoy no es por clases. Es por vos. Por declararte a vos misma que ya te priorizás.</p>
+      <p style="text-align:center;font-family:'Fraunces',serif;font-size:26px;line-height:1.3;color:var(--cream);font-style:italic;margin-top:28px"><strong>Esa declaración es el principio del despertar.</strong></p>
+      <div class="final-cta">
+        <a class="btn primary big" href="#precio">Reservo mi lugar en Expansión 10X <span class="arrow">→</span></a>
+      </div>
+      <div class="whisper">Tu Yo de dentro de 5 años ya sabe qué vas a decidir.<br/>Demostrale que era la decisión correcta.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ———————————————————————————————————— 15 · FOOTER ———————————————————————————————————— -->
 <footer>
   <div class="container">
     <div class="f-grid">
       <div>
         <h5>Conecta conmigo</h5>
-        <p style="font-family:'Fraunces',serif;font-weight:300;font-size:22px;line-height:1.3;color:var(--cream);max-width:360px;margin:0 0 16px">
-          Tu abundancia comienza aquí. Da el primer paso hacia la transformación que buscas.
+        <p style="font-family:'Fraunces',serif;font-weight:300;font-size:22px;line-height:1.3;color:var(--cream);max-width:380px;margin:0 0 18px">
+          Coach especializada en mentalidad de abundancia. Tu expansión comienza con una decisión.
         </p>
-        <p style="color:rgba(244,236,222,.65);font-size:13px;margin:0">info@jhanaaridi.com</p>
+        <p style="color:rgba(244,236,222,.7);font-size:14px;margin:0 0 4px">
+          <a href="mailto:info@jhanaaridi.com">📧 info@jhanaaridi.com</a>
+        </p>
+        <p style="color:rgba(244,236,222,.7);font-size:14px;margin:0">
+          <a href="https://wa.me/584244245783" target="_blank" rel="noopener">📱 WhatsApp · +58 424-4245783</a>
+        </p>
       </div>
       <div>
         <h5>Navegar</h5>
         <ul>
-          <li><a href="#manifesto">Manifiesto</a></li>
-          <li><a href="#quien">Quién soy</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#paquetes">Paquetes</a></li>
+          <li><a href="#metodo">El método</a></li>
+          <li><a href="#incluye">Qué incluye</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#precio">Inversión</a></li>
+          <li><a href="#faq">Preguntas</a></li>
         </ul>
       </div>
       <div>
         <h5>Programa</h5>
         <ul>
-          <li><a href="#paquetes">Expansión</a></li>
+          <li><a href="#precio">Expansión 10X</a></li>
+          <li><a href="#contacto">Llamada de 20 min</a></li>
+          <li><a>Retiro presencial</a></li>
           <li><a>Talleres empresas</a></li>
-          <li><a>Talleres online</a></li>
-          <li><a>Conferencias</a></li>
         </ul>
       </div>
       <div>
         <h5>Redes</h5>
         <ul>
-          <li><a>Instagram</a></li>
-          <li><a>TikTok</a></li>
-          <li><a>YouTube</a></li>
-          <li><a>WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/jhanaaridi" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@jhanaaridicoach" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="https://youtube.com/@jhanaelaridi5658" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://wa.me/584244245783" target="_blank" rel="noopener">WhatsApp</a></li>
         </ul>
       </div>
     </div>
     <div class="bigname">Jhana <em>El Aridi.</em></div>
     <div class="legal">
       <span>© 2026 Jhana El Aridi · Todos los derechos reservados.</span>
-      <span>Políticas · Términos · Cookies</span>
+      <span>Política de Privacidad · Términos y Condiciones · Garantía de Reembolso</span>
     </div>
   </div>
 </footer>
 
 <script>
-/* ——— Nav scroll state ——— */
+/* Nav scroll */
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-});
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
 
-/* ——— Reveal on scroll ——— */
+/* Reveal on scroll */
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
 }, {threshold: .08});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* ——— Rotator not used in this version (reserved) ——— */
-
-/* ——— Quiz ——— */
-const QUESTIONS = [
-  {
-    q: "Cuando piensas en recibir una gran cantidad de dinero, lo primero que sientes es…",
-    opts: [
-      { t: "Miedo: ¿qué voy a tener que hacer para conservarlo?", s: 3 },
-      { t: "Culpa: otros no tienen, ¿por qué yo sí?",             s: 3 },
-      { t: "Ilusión mezclada con duda.",                           s: 2 },
-      { t: "Gratitud. Me siento merecedor.",                       s: 1 }
-    ]
-  },
-  {
-    q: "Si tu ingreso se triplicara mañana, tu primera reacción sería…",
-    opts: [
-      { t: "Esconderlo. No quiero que me pidan.",                  s: 3 },
-      { t: "Gastarlo antes de que \"desaparezca\".",               s: 3 },
-      { t: "Ahorrar por si vuelve la escasez.",                    s: 2 },
-      { t: "Usarlo para construir algo más grande.",               s: 1 }
-    ]
-  },
-  {
-    q: "Cuando cobras por tu trabajo, normalmente…",
-    opts: [
-      { t: "Cobro menos de lo que vale y lo sé.",                  s: 3 },
-      { t: "Siento que debería dar más de lo acordado.",           s: 2 },
-      { t: "Cobro lo justo, pero me cuesta pedir aumentos.",       s: 2 },
-      { t: "Cobro con claridad y sin justificarme.",               s: 1 }
-    ]
-  },
-  {
-    q: "Al ver a alguien con más abundancia que tú, sientes…",
-    opts: [
-      { t: "Rabia o envidia. Algo no es justo.",                   s: 3 },
-      { t: "Tristeza. Yo nunca llegaría ahí.",                     s: 3 },
-      { t: "Curiosidad. ¿Cómo lo hizo?",                            s: 2 },
-      { t: "Inspiración. Si ella pudo, yo también.",               s: 1 }
-    ]
-  },
-  {
-    q: "Tu relación con el descanso se parece más a…",
-    opts: [
-      { t: "Descansar es perder tiempo / dinero.",                 s: 3 },
-      { t: "Solo descanso cuando ya no puedo más.",                s: 2 },
-      { t: "Descanso con culpa.",                                   s: 2 },
-      { t: "Descansar es parte de mi rendimiento.",                s: 1 }
-    ]
-  },
-  {
-    q: "Cuando piensas en \"merecer\" lo que quieres, lo primero que aparece es…",
-    opts: [
-      { t: "\"Todavía no.\"",                                       s: 3 },
-      { t: "\"Cuando termine de… entonces sí.\"",                  s: 2 },
-      { t: "\"Estoy en camino.\"",                                  s: 2 },
-      { t: "\"Ya lo merezco.\"",                                    s: 1 }
-    ]
-  },
-];
-
-const RESULTS = [
-  { range:[6,9], key:"expansiva",
-    title: "Mentalidad <em>expansiva</em>",
-    desc: "Tu relación con el dinero ya es sana — el dinero es una herramienta, no una medida de tu valor. Aún así, hay capas más finas que se pueden pulir para abrir más recepción.",
-    plan: "expansion", planName: "Programa Expansión", planSub: "Para sostener y escalar lo que ya sabes que mereces — con acompañamiento integral."
-  },
-  { range:[10,14], key:"transicion",
-    title: "En <em>transición</em>",
-    desc: "Estás saliendo de la escasez pero la mente vieja todavía te jala. Aparece la duda, la culpa, la comparación. Es el momento más importante — porque aquí se decide si vuelves atrás o avanzas.",
-    plan: "expansion", planName: "Programa Expansión", planSub: "El acompañamiento ideal para consolidar lo que empezaste, sin volver a la escasez."
-  },
-  { range:[15,18], key:"escasez",
-    title: "Desde la <em>escasez programada</em>",
-    desc: "Tu inconsciente tiene memorizada la carencia. No es carácter: es una programación que se puede sanar. El primer paso es ver la raíz, y desde ahí todo empieza a moverse.",
-    plan: "expansion", planName: "Programa Expansión", planSub: "Para sanar la raíz y rediseñar tu relación con el dinero de forma sostenida."
-  },
-];
-
-const qState = { idx: 0, score: 0 };
-const qQuestion = document.getElementById('q-question');
-const qOptions  = document.getElementById('q-options');
-const qProgress = document.getElementById('q-progress');
-const qCount    = document.getElementById('q-count');
-const qCard     = document.getElementById('q-card');
-const qResult   = document.getElementById('q-result');
-
-function renderQ(){
-  const cur = QUESTIONS[qState.idx];
-  qQuestion.textContent = cur.q;
-  qCount.textContent = `Pregunta ${qState.idx+1} / ${QUESTIONS.length}`;
-  qOptions.innerHTML = cur.opts.map((o,i)=>`
-    <div class="q-option" data-score="${o.s}">
-      <span class="bullet"></span>
-      <span>${o.t}</span>
-    </div>
-  `).join('');
-  // progress
-  [...qProgress.children].forEach((d,i)=>{
-    d.className = i < qState.idx ? 'done' : (i === qState.idx ? 'active' : '');
-  });
-  qOptions.querySelectorAll('.q-option').forEach(el=>{
-    el.addEventListener('click', ()=>{
-      qState.score += parseInt(el.dataset.score,10);
-      qState.idx++;
-      if (qState.idx >= QUESTIONS.length) return showResult();
-      qCard.style.opacity = 0;
-      setTimeout(()=>{ renderQ(); qCard.style.opacity = 1; }, 180);
-    });
-  });
-}
-qCard.style.transition = 'opacity .18s';
-
-function showResult(){
-  const r = RESULTS.find(r => qState.score >= r.range[0] && qState.score <= r.range[1]) || RESULTS[1];
-  qCard.style.display = 'none';
-  qResult.classList.add('show');
-  qResult.innerHTML = `
-    <span class="mono" style="color:var(--clay)">Tu resultado</span>
-    <h4>${r.title}</h4>
-    <p>${r.desc}</p>
-    <div class="rec">
-      <span class="mono">Recomendación</span>
-      <h5>${r.planName}</h5>
-      <p style="margin:0;color:rgba(244,236,222,.7)">${r.planSub}</p>
-    </div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a href="#paquetes" class="btn primary" style="background:var(--clay);color:var(--cream)">Unirme a la lista de Expansión →</a>
-      <button id="q-retry" class="btn ghost" style="border-color:rgba(251,251,247,.4);color:var(--cream)">Volver a empezar</button>
-    </div>
-  `;
-  document.getElementById('q-retry').addEventListener('click',()=>{
-    qState.idx = 0; qState.score = 0;
-    qResult.classList.remove('show');
-    qCard.style.display = '';
-    renderQ();
-  });
-  // Highlight recommended plan
-  document.querySelectorAll('.plan').forEach(p => p.classList.toggle('recommended', p.dataset.plan === r.plan));
-}
-renderQ();
-
-/* ——— Smooth scroll ——— */
+/* Smooth scroll for anchor links */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', (e)=>{
     const id = a.getAttribute('href');
@@ -949,14 +974,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     }
   });
 });
-
-/* Recommended plan highlight */
-const recStyle = document.createElement('style');
-recStyle.textContent = `
-  .plan.recommended{ outline: 2px solid var(--clay); outline-offset: 6px; }
-`;
-document.head.appendChild(recStyle);
-
 </script>
 
 </body>
