@@ -7,7 +7,7 @@
 <meta name="description" content="Programa de 12 semanas con Jhana El Aridi para sanar tu relación con el dinero, reprogramar tu merecimiento y construir la estructura financiera que te compra la libertad." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&family=Kaushan+Script&display=swap" rel="stylesheet">
 <style>
   /* ——— Design system ——— */
   :root{
@@ -49,8 +49,10 @@
     border-bottom:1px solid transparent;
   }
   nav.top.scrolled{background:rgba(251,251,247,.96);border-bottom-color:var(--line)}
-  nav .brand{font-family:'Fraunces',serif;font-size:20px;letter-spacing:-.01em;font-weight:400}
-  nav .brand i{font-style:italic;font-weight:300;color:var(--clay)}
+  nav .brand{display:inline-flex;flex-direction:column;align-items:flex-start;line-height:1;gap:2px;text-decoration:none}
+  nav .brand .script{font-family:'Kaushan Script',cursive;font-size:30px;color:var(--ink);line-height:1;letter-spacing:-.01em;transform:translateY(2px)}
+  nav .brand .sub{font-family:'Inter',sans-serif;font-size:9px;letter-spacing:.45em;color:var(--ink);font-weight:500;text-indent:.45em}
+  @media (max-width:900px){nav .brand .script{font-size:26px}nav .brand .sub{font-size:8px}}
   nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
   nav ul a{font-size:13px;color:var(--ink-2);transition:color .2s}
   nav ul a:hover{color:var(--clay)}
@@ -353,8 +355,9 @@
   footer ul{list-style:none;margin:0;padding:0}
   footer li{margin-bottom:10px;font-size:14px;color:rgba(244,236,222,.72)}
   footer li a:hover{color:var(--cream)}
-  footer .bigname{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(54px,11vw,160px);line-height:.85;letter-spacing:-.04em;color:var(--cream);opacity:.92;margin:0;overflow:hidden;white-space:nowrap}
-  footer .bigname em{font-style:italic;color:var(--clay)}
+  footer .bigname{display:flex;flex-direction:column;align-items:flex-start;line-height:.85;margin:0;overflow:hidden}
+  footer .bigname .script{font-family:'Kaushan Script',cursive;font-size:clamp(84px,16vw,220px);line-height:.9;color:var(--cream);opacity:.95;letter-spacing:-.01em;white-space:nowrap}
+  footer .bigname .sub{font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(14px,2vw,24px);letter-spacing:.45em;color:var(--cream);opacity:.85;margin-top:6px;text-indent:.45em}
   footer .legal{display:flex;justify-content:space-between;border-top:1px solid rgba(244,236,222,.12);padding-top:22px;font-size:12px;color:rgba(244,236,222,.5);flex-wrap:wrap;gap:10px;margin-top:30px}
 
   /* ——— Reveal animation ——— */
@@ -366,7 +369,10 @@
 <body>
 
 <nav class="top" id="nav">
-  <div class="brand">jhana <i>el aridi</i></div>
+  <a class="brand" href="#" aria-label="Jhana El Aridi">
+    <span class="script">Jhana</span>
+    <span class="sub">EL ARIDI</span>
+  </a>
   <ul>
     <li><a href="#metodo">Método</a></li>
     <li><a href="#incluye">Qué incluye</a></li>
@@ -945,7 +951,10 @@
         </ul>
       </div>
     </div>
-    <div class="bigname">Jhana <em>El Aridi.</em></div>
+    <div class="bigname" aria-label="Jhana El Aridi">
+      <span class="script">Jhana</span>
+      <span class="sub">EL ARIDI</span>
+    </div>
     <div class="legal">
       <span>© 2026 Jhana El Aridi · Todos los derechos reservados.</span>
       <span>Política de Privacidad · Términos y Condiciones · Garantía de Reembolso</span>
