@@ -3,8 +3,14 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import type { Role } from '@/lib/auth';
+import type { ModuleKey } from '@/lib/plans';
 
-type NavItem = { href: string; label: string; icon: React.ReactNode };
+type NavItem = {
+  href: string;
+  label: string;
+  icon: React.ReactNode;
+  module?: ModuleKey; // if set, user's plan must include this
+};
 
 const ICONS = {
   home: (
@@ -48,26 +54,31 @@ const ICONS = {
       <path d="M7 8h10M7 12h10M7 16h6" />
     </svg>
   ),
+  coin: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M8 12h8M12 8v8" />
+    </svg>
+  ),
 };
 
 const NAV: Record<Role, NavItem[]> = {
   user: [
-    { href: '/dashboard/user', label: 'Mi espacio', icon: ICONS.home },
-    { href: '/dashboard/user/curso', label: 'Curso', icon: ICONS.book },
-    { href: '/dashboard/user/comunidad', label: 'Comunidad', icon: ICONS.users },
-    { href: '/dashboard/user/planificador', label: 'Planificador', icon: ICONS.chart },
-    { href: '/dashboard/user/billetera', label: 'Billetera', icon: ICONS.wallet },
+    { href: '/dashboard/user',              label: 'Mi espacio',   icon: ICONS.home,   module: 'dashboard' },
+    { href: '/dashboard/user/curso',        label: 'Curso',        icon: ICONS.book,   module: 'curso' },
+    { href: '/dashboard/user/comunidad',    label: 'Comunidad',    icon: ICONS.users,  module: 'comunidad' },
+    { href: '/dashboard/user/planificador', label: 'Planificador', icon: ICONS.chart,  module: 'planificador' },
+    { href: '/dashboard/user/billetera',    label: 'Billetera',    icon: ICONS.wallet, module: 'billetera' },
   ],
   coach: [
-    { href: '/dashboard/coach', label: 'Resumen', icon: ICONS.home },
+    { href: '/dashboard/coach',         label: 'Resumen',     icon: ICONS.home },
     { href: '/dashboard/coach/alumnas', label: 'Mis alumnas', icon: ICONS.users },
-    { href: '/dashboard/coach/sesiones', label: 'Sesiones', icon: ICONS.book },
   ],
   admin: [
-    { href: '/dashboard/admin', label: 'Resumen', icon: ICONS.home },
-    { href: '/dashboard/admin/ingresos', label: 'Ingresos', icon: ICONS.chart },
-    { href: '/dashboard/admin/usuarios', label: 'Usuarios', icon: ICONS.users },
+    { href: '/dashboard/admin',           label: 'Resumen',   icon: ICONS.home },
+    { href: '/dashboard/admin/usuarios',  label: 'Usuarios',  icon: ICONS.users },
     { href: '/dashboard/admin/contenido', label: 'Contenido', icon: ICONS.content },
+    { href: '/dashboard/admin/ingresos',  label: 'Ingresos',  icon: ICONS.coin },
   ],
 };
 
@@ -77,16 +88,29 @@ const ROLE_LABEL: Record<Role, string> = {
   admin: 'Admin',
 };
 
-export default function Sidebar(props: {
+export default function Sidebar({
+  role,
+  name,
+  email,
+  modules,
+  planName,
+}: {
   role: Role;
   name: string;
   email: string;
+  modules: ModuleKey[];
+  planName: string | null;
 }) {
-  const { role, name, email } = props;
   const pathname = usePathname();
   const router = useRouter();
-  const items = NAV[role];
   const initial = (name.trim().charAt(0) || 'E').toUpperCase();
+
+  // For alumnas: filter items whose `module` isn't in the user's plan.
+  // For coach/admin: show everything their role has.
+  const items =
+    role === 'user'
+      ? NAV.user.filter((i) => !i.module || modules.includes(i.module))
+      : NAV[role];
 
   const handleLogout = async () => {
     await fetch('/api/auth/logout', { method: 'POST' });
@@ -128,6 +152,16 @@ export default function Sidebar(props: {
           })}
         </ul>
       </div>
+
+      {role === 'user' && planName && (
+        <div className="sb-plan">
+          <div className="sp-label">Tu plan activo</div>
+          <div className="sp-title">{planName}</div>
+          <div className="sp-meta">
+            {modules.filter((m) => m !== 'dashboard').length} módulos activos
+          </div>
+        </div>
+      )}
 
       <div className="sb-user">
         <div className="avatar">{initial}</div>

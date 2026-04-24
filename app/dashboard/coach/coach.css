@@ -49,3 +49,12 @@
 .coach-table .chip.tier-expansion_plus{background:rgba(124,156,110,.2);color:var(--clay-d)}
 .coach-table .chip.tier-alumni{background:rgba(198,118,80,.12);color:var(--accent)}
 .coach-table .chip.ghost{background:transparent;border:1px solid var(--line);color:var(--ink-3)}
+
+.coach-table .num{text-align:left;font-family:'JetBrains Mono',monospace;font-weight:500;color:var(--ink);letter-spacing:.02em}
+.coach-table .trend-up{color:var(--clay);font-weight:500}
+.coach-table .trend-down{color:var(--accent);font-weight:500}
+
+.progress-cell{display:flex;flex-direction:column;gap:4px;min-width:120px}
+.progress-cell .b{height:4px;background:var(--cream-2);border-radius:2px;overflow:hidden}
+.progress-cell .b span{display:block;height:100%;background:var(--clay)}
+.progress-cell .val{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-2);letter-spacing:.04em}
