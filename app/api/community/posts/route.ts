@@ -90,6 +90,36 @@ export async function POST(req: Request) {
   }
 }
 
+// ═════════════ PATCH — pin/unpin (admin only) ═════════════
+const Patch = z.object({
+  id: z.string().uuid(),
+  pinned: z.boolean(),
+});
+
+export async function PATCH(req: Request) {
+  const session = await readSession();
+  if (!session || session.role !== 'admin') {
+    return NextResponse.json({ ok: false, error: 'Solo admin' }, { status: 403 });
+  }
+
+  let body: unknown;
+  try { body = await req.json(); }
+  catch { return NextResponse.json({ ok: false, error: 'JSON inválido' }, { status: 400 }); }
+
+  const parsed = Patch.safeParse(body);
+  if (!parsed.success) {
+    return NextResponse.json({ ok: false, error: 'Datos inválidos' }, { status: 400 });
+  }
+
+  try {
+    await sql()`update community_posts set pinned = ${parsed.data.pinned} where id = ${parsed.data.id}`;
+    return NextResponse.json({ ok: true });
+  } catch (err) {
+    console.error('community PATCH', err);
+    return NextResponse.json({ ok: false, error: 'Error al actualizar' }, { status: 500 });
+  }
+}
+
 export async function DELETE(req: Request) {
   const session = await readSession();
   if (!session) {

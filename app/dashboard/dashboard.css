@@ -54,13 +54,21 @@
 .dash-shell .sb-user{
   display:flex;align-items:center;gap:10px;padding:12px;margin-top:14px;
   border:1px solid var(--line);border-radius:4px;background:var(--card-bg);
+  text-decoration:none;color:inherit;transition:border-color .15s, background .15s;
 }
+.dash-shell .sb-user:hover{border-color:var(--ink-2);background:var(--cream-2)}
 .dash-shell .sb-user .avatar{width:32px;height:32px;border-radius:99px;background:linear-gradient(135deg,var(--gold),var(--clay));display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;color:var(--cream);font-size:15px;flex-shrink:0}
 .dash-shell .sb-user .who{flex:1;min-width:0}
 .dash-shell .sb-user .name{font-size:13px;font-weight:500;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.dash-shell .sb-user .role{font-size:11px;color:var(--ink-2)}
-.dash-shell .sb-user .logout{background:none;border:none;color:var(--ink-2);cursor:pointer;padding:6px;border-radius:4px;font-size:11px}
-.dash-shell .sb-user .logout:hover{color:var(--accent);background:rgba(198,118,80,.08)}
+.dash-shell .sb-user .role{font-size:11px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
+
+.dash-shell .sb-logout{
+  display:flex;align-items:center;gap:10px;padding:10px 12px;margin-top:6px;width:100%;
+  background:transparent;border:1px solid transparent;border-radius:4px;
+  font-family:'Inter',sans-serif;font-size:13px;color:var(--ink-2);cursor:pointer;transition:all .15s;
+}
+.dash-shell .sb-logout:hover{background:rgba(198,118,80,.08);color:var(--accent)}
+.dash-shell .sb-logout svg{width:14px;height:14px;flex-shrink:0}
 
 .dash-shell .sb-plan{
   margin-top:auto;background:var(--clay-d);color:var(--cream);

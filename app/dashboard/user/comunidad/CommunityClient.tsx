@@ -98,6 +98,34 @@ export default function CommunityClient({
     }
   };
 
+  const togglePin = async (id: string, currentPinned: boolean) => {
+    const nextPinned = !currentPinned;
+    // Optimistic: toggle and re-sort (pinned first, then by date)
+    setPosts((prev) => {
+      const updated = prev.map((p) =>
+        p.id === id ? { ...p, pinned: nextPinned } : p
+      );
+      return updated.sort((a, b) => {
+        if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
+        return b.created_at.localeCompare(a.created_at);
+      });
+    });
+    try {
+      const res = await fetch('/api/community/posts', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, pinned: nextPinned }),
+      });
+      if (!res.ok) throw new Error();
+      startTransition(() => router.refresh());
+    } catch {
+      // Revert
+      setPosts((prev) =>
+        prev.map((p) => (p.id === id ? { ...p, pinned: currentPinned } : p))
+      );
+    }
+  };
+
   const avatarInitial = currentUserName.trim().charAt(0).toUpperCase() || 'E';
 
   return (
@@ -165,17 +193,30 @@ export default function CommunityClient({
                       </div>
                     </div>
                   </div>
-                  {canDelete && (
-                    <button
-                      type="button"
-                      className="post-del"
-                      onClick={() => remove(p.id)}
-                      aria-label="Eliminar publicación"
-                      title="Eliminar"
-                    >
-                      ×
-                    </button>
-                  )}
+                  <div className="post-actions">
+                    {currentUserRole === 'admin' && (
+                      <button
+                        type="button"
+                        className={`post-pin${p.pinned ? ' active' : ''}`}
+                        onClick={() => togglePin(p.id, p.pinned)}
+                        aria-label={p.pinned ? 'Despinnear' : 'Fijar'}
+                        title={p.pinned ? 'Despinnear este post' : 'Fijar este post arriba'}
+                      >
+                        📌
+                      </button>
+                    )}
+                    {canDelete && (
+                      <button
+                        type="button"
+                        className="post-del"
+                        onClick={() => remove(p.id)}
+                        aria-label="Eliminar publicación"
+                        title="Eliminar"
+                      >
+                        ×
+                      </button>
+                    )}
+                  </div>
                 </div>
                 {p.title && <h3 className="post-title">{p.title}</h3>}
                 <div className="post-body">

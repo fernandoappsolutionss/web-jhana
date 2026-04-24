@@ -64,6 +64,85 @@ export default function UsersTable({
     setCPassword(s);
   };
 
+  // ——— Row actions (reset password, delete) ———
+  const [openActions, setOpenActions] = useState<string | null>(null);
+  const [resetTarget, setResetTarget] = useState<AdminUser | null>(null);
+  const [resetPw, setResetPw] = useState('');
+  const [resetPending, setResetPending] = useState(false);
+  const [resetError, setResetError] = useState<string | null>(null);
+
+  const genPw = () => {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+    let s = '';
+    const arr = crypto.getRandomValues(new Uint8Array(14));
+    for (const b of arr) s += chars[b % chars.length];
+    return s;
+  };
+
+  const openReset = (user: AdminUser) => {
+    setResetTarget(user);
+    setResetPw(genPw());
+    setResetError(null);
+    setOpenActions(null);
+  };
+
+  const submitReset = async () => {
+    if (!resetTarget) return;
+    setResetPending(true);
+    setResetError(null);
+    try {
+      const res = await fetch(`/api/admin/users/${resetTarget.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: resetPw }),
+      });
+      const data = (await res.json()) as { ok: boolean; error?: string };
+      if (!res.ok || !data.ok) {
+        setResetError(data.error ?? 'Error al resetear.');
+        return;
+      }
+      // Best-effort copy to clipboard
+      try {
+        await navigator.clipboard.writeText(resetPw);
+        setFlash(`✓ Contraseña copiada al portapapeles`);
+      } catch {
+        setFlash(`✓ Contraseña reseteada para ${resetTarget.email}`);
+      }
+      setTimeout(() => setFlash(null), 4000);
+      setResetTarget(null);
+      setResetPw('');
+    } catch {
+      setResetError('Problema de conexión.');
+    } finally {
+      setResetPending(false);
+    }
+  };
+
+  const deleteUser = async (user: AdminUser) => {
+    setOpenActions(null);
+    if (!confirm(`¿Eliminar a ${user.name} (${user.email})?\n\nEsto borra su cuenta y todos sus datos (progreso, snapshots, pagos). No se puede deshacer.`)) {
+      return;
+    }
+    try {
+      const res = await fetch(`/api/admin/users/${user.id}`, {
+        method: 'DELETE',
+      });
+      const data = (await res.json()) as { ok: boolean; error?: string };
+      if (!res.ok || !data.ok) {
+        setFlash(data.error ?? 'Error al eliminar');
+        setTimeout(() => setFlash(null), 3000);
+        return;
+      }
+      setUsers(users.filter((u) => u.id !== user.id));
+      setFlash(`✓ ${user.email} eliminado`);
+      setTimeout(() => setFlash(null), 3000);
+      startTransition(() => router.refresh());
+    } catch {
+      setFlash('Problema de conexión');
+      setTimeout(() => setFlash(null), 3000);
+    }
+  };
+
   const createUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setCError(null);
@@ -267,6 +346,7 @@ export default function UsersTable({
               <th>Coach asignado</th>
               <th>Último acceso</th>
               <th>Registro</th>
+              <th style={{ width: 48 }} />
             </tr>
           </thead>
           <tbody>
@@ -347,6 +427,44 @@ export default function UsersTable({
                   </td>
                   <td className="mono-cell">{fmtDate(u.last_login_at)}</td>
                   <td className="mono-cell">{fmtDate(u.created_at)}</td>
+                  <td className="actions-cell">
+                    <div className="actions-menu">
+                      <button
+                        type="button"
+                        className="actions-trigger"
+                        aria-label="Acciones"
+                        onClick={() =>
+                          setOpenActions(openActions === u.id ? null : u.id)
+                        }
+                      >
+                        ⋯
+                      </button>
+                      {openActions === u.id && (
+                        <>
+                          <div
+                            className="actions-backdrop"
+                            onClick={() => setOpenActions(null)}
+                          />
+                          <div className="actions-pop" role="menu">
+                            <button
+                              type="button"
+                              className="ap-item"
+                              onClick={() => openReset(u)}
+                            >
+                              Resetear contraseña
+                            </button>
+                            <button
+                              type="button"
+                              className="ap-item danger"
+                              onClick={() => deleteUser(u)}
+                            >
+                              Eliminar usuario
+                            </button>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </td>
                 </tr>
               );
             })}
@@ -356,6 +474,65 @@ export default function UsersTable({
 
       {users.length === 0 && (
         <div className="empty">Todavía no hay usuarios registrados.</div>
+      )}
+
+      {resetTarget && (
+        <div className="modal-backdrop" onClick={() => !resetPending && setResetTarget(null)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-head">
+              <div className="mono">— Resetear contraseña</div>
+              <h3>
+                <em>{resetTarget.name}</em>
+              </h3>
+              <p className="modal-sub">{resetTarget.email}</p>
+            </div>
+            <div className="modal-body">
+              <p className="modal-note">
+                Esta es la nueva contraseña temporal. Cópiala y envíasela por
+                WhatsApp — después el usuario debe cambiarla desde su perfil.
+              </p>
+              <div className="reset-pw-wrap">
+                <input
+                  type="text"
+                  value={resetPw}
+                  onChange={(e) => setResetPw(e.target.value)}
+                  className="reset-pw-input"
+                  aria-label="Nueva contraseña"
+                />
+                <button
+                  type="button"
+                  className="btn ghost"
+                  onClick={() => setResetPw(genPw())}
+                >
+                  ⟳ generar
+                </button>
+              </div>
+              {resetError && (
+                <div className="pc-msg err" style={{ marginTop: 12 }}>
+                  {resetError}
+                </div>
+              )}
+            </div>
+            <div className="modal-actions">
+              <button
+                type="button"
+                className="btn ghost"
+                onClick={() => setResetTarget(null)}
+                disabled={resetPending}
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                className="btn primary"
+                onClick={submitReset}
+                disabled={resetPending || resetPw.length < 8}
+              >
+                {resetPending ? 'Guardando…' : 'Aplicar y copiar'}
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

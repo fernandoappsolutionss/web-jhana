@@ -71,14 +71,16 @@ const NAV: Record<Role, NavItem[]> = {
     { href: '/dashboard/user/billetera',    label: 'Billetera',    icon: ICONS.wallet, module: 'billetera' },
   ],
   coach: [
-    { href: '/dashboard/coach',         label: 'Resumen',     icon: ICONS.home },
-    { href: '/dashboard/coach/alumnas', label: 'Mis alumnas', icon: ICONS.users },
+    { href: '/dashboard/coach',             label: 'Resumen',     icon: ICONS.home },
+    { href: '/dashboard/coach/alumnas',     label: 'Mis alumnas', icon: ICONS.users },
+    { href: '/dashboard/user/comunidad',    label: 'Comunidad',   icon: ICONS.users },
   ],
   admin: [
-    { href: '/dashboard/admin',           label: 'Resumen',   icon: ICONS.home },
-    { href: '/dashboard/admin/usuarios',  label: 'Usuarios',  icon: ICONS.users },
-    { href: '/dashboard/admin/contenido', label: 'Contenido', icon: ICONS.content },
-    { href: '/dashboard/admin/ingresos',  label: 'Ingresos',  icon: ICONS.coin },
+    { href: '/dashboard/admin',             label: 'Resumen',   icon: ICONS.home },
+    { href: '/dashboard/admin/usuarios',    label: 'Usuarios',  icon: ICONS.users },
+    { href: '/dashboard/admin/contenido',   label: 'Contenido', icon: ICONS.content },
+    { href: '/dashboard/admin/ingresos',    label: 'Ingresos',  icon: ICONS.coin },
+    { href: '/dashboard/user/comunidad',    label: 'Comunidad', icon: ICONS.book },
   ],
 };
 
@@ -163,22 +165,26 @@ export default function Sidebar({
         </div>
       )}
 
-      <div className="sb-user">
+      <Link className="sb-user" href="/dashboard/perfil" title="Editar perfil">
         <div className="avatar">{initial}</div>
         <div className="who">
-          <div className="name" title={name}>{name}</div>
+          <div className="name">{name}</div>
           <div className="role">{email}</div>
         </div>
-        <button
-          type="button"
-          className="logout"
-          onClick={handleLogout}
-          aria-label="Cerrar sesión"
-          title="Cerrar sesión"
-        >
-          Salir
-        </button>
-      </div>
+      </Link>
+      <button
+        type="button"
+        className="sb-logout"
+        onClick={handleLogout}
+        aria-label="Cerrar sesión"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+          <path d="M10 17l-5-5 5-5" />
+          <path d="M15 12H5" />
+        </svg>
+        <span>Cerrar sesión</span>
+      </button>
     </aside>
   );
 }

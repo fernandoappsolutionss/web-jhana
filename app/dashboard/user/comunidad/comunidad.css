@@ -58,11 +58,20 @@
 .role-chip.r-coach{background:rgba(198,118,80,.12);color:var(--accent)}
 .role-chip.r-admin{background:rgba(22,34,24,.08);color:var(--ink)}
 
+.post-actions{display:inline-flex;gap:4px;align-items:center}
 .post-del{
   background:none;border:none;color:var(--ink-3);font-size:22px;cursor:pointer;
   padding:4px 10px;border-radius:4px;line-height:1;
 }
 .post-del:hover{color:#b1442a;background:rgba(177,68,42,.08)}
+
+.post-pin{
+  background:transparent;border:1px solid transparent;color:var(--ink-3);
+  font-size:14px;cursor:pointer;padding:6px 8px;border-radius:4px;line-height:1;
+  opacity:.5;transition:all .15s;
+}
+.post-pin:hover{background:var(--cream-2);opacity:1}
+.post-pin.active{background:rgba(124,156,110,.15);border-color:var(--gold);color:var(--clay);opacity:1}
 
 .post-title{font-family:'Fraunces',serif;font-weight:400;font-size:20px;letter-spacing:-.01em;margin:0 0 8px;color:var(--ink)}
 .post-body{color:var(--ink-2);font-size:14px;line-height:1.6}
