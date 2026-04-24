@@ -20,16 +20,23 @@ export async function middleware(req: NextRequest) {
       url.searchParams.set('next', pathname);
       return NextResponse.redirect(url);
     }
-    // Role guard: /dashboard/user is for role=user, etc.
+
     const segments = pathname.split('/').filter(Boolean); // ['dashboard', 'user'?...]
     const wanted = segments[1];
-    if (
-      (wanted === 'user' || wanted === 'coach' || wanted === 'admin') &&
-      wanted !== session.role
-    ) {
-      const url = req.nextUrl.clone();
-      url.pathname = `/dashboard/${session.role}`;
-      return NextResponse.redirect(url);
+    const roleScoped = wanted === 'user' || wanted === 'coach' || wanted === 'admin';
+
+    if (roleScoped && wanted !== session.role) {
+      // Admin can access every dashboard path (moderation/visibility).
+      // Coach can also access /dashboard/user/comunidad to moderate/participate.
+      const allowed =
+        session.role === 'admin' ||
+        (session.role === 'coach' && pathname.startsWith('/dashboard/user/comunidad'));
+
+      if (!allowed) {
+        const url = req.nextUrl.clone();
+        url.pathname = `/dashboard/${session.role}`;
+        return NextResponse.redirect(url);
+      }
     }
   }
 
