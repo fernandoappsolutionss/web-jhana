@@ -38,6 +38,70 @@ export default function UsersTable({
   const [savingId, setSavingId] = useState<string | null>(null);
   const [, startTransition] = useTransition();
   const [flash, setFlash] = useState<string | null>(null);
+  const [showCreate, setShowCreate] = useState(false);
+
+  // Create form state
+  const [cName, setCName] = useState('');
+  const [cEmail, setCEmail] = useState('');
+  const [cPassword, setCPassword] = useState('');
+  const [cRole, setCRole] = useState<AdminUser['role']>('user');
+  const [cPlan, setCPlan] = useState<string>('');
+  const [cCoach, setCCoach] = useState<string>('');
+  const [cError, setCError] = useState<string | null>(null);
+  const [cPending, setCPending] = useState(false);
+
+  const resetCreate = () => {
+    setCName(''); setCEmail(''); setCPassword('');
+    setCRole('user'); setCPlan(''); setCCoach('');
+    setCError(null);
+  };
+
+  const genPassword = () => {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+    let s = '';
+    const arr = crypto.getRandomValues(new Uint8Array(14));
+    for (const b of arr) s += chars[b % chars.length];
+    setCPassword(s);
+  };
+
+  const createUser = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setCError(null);
+    setCPending(true);
+    try {
+      const res = await fetch('/api/admin/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: cName.trim(),
+          email: cEmail.trim().toLowerCase(),
+          password: cPassword,
+          role: cRole,
+          plan_slug: cRole === 'user' ? (cPlan || null) : null,
+          coach_id: cRole === 'user' ? (cCoach || null) : null,
+        }),
+      });
+      const data = (await res.json()) as {
+        ok: boolean;
+        user?: AdminUser;
+        error?: string;
+      };
+      if (!res.ok || !data.ok || !data.user) {
+        setCError(data.error ?? 'No pudimos crear el usuario.');
+        return;
+      }
+      setUsers([data.user, ...users]);
+      setFlash('✓ Usuario creado');
+      setTimeout(() => setFlash(null), 2000);
+      resetCreate();
+      setShowCreate(false);
+      startTransition(() => router.refresh());
+    } catch {
+      setCError('Problema de conexión.');
+    } finally {
+      setCPending(false);
+    }
+  };
 
   const patch = async (
     id: string,
@@ -76,6 +140,122 @@ export default function UsersTable({
   return (
     <div className="admin-users">
       {flash && <div className={`flash ${flash.startsWith('✓') ? 'ok' : 'err'}`}>{flash}</div>}
+
+      <div className="users-toolbar">
+        <span className="mono">{users.length} usuarios en total</span>
+        <button
+          type="button"
+          className="btn primary"
+          onClick={() => setShowCreate((s) => !s)}
+        >
+          {showCreate ? 'Cancelar' : '+ Crear usuario'}
+        </button>
+      </div>
+
+      {showCreate && (
+        <form className="create-form" onSubmit={createUser}>
+          <div className="cf-header">
+            <div>
+              <div className="mono">Nuevo usuario</div>
+              <h3>Crear una <em>cuenta</em></h3>
+            </div>
+            <p className="cf-note">
+              El usuario recibirá estos datos para entrar. Puedes cambiar su rol,
+              plan o coach después.
+            </p>
+          </div>
+
+          <div className="cf-grid">
+            <div className="cf-field">
+              <label htmlFor="cf-name">Nombre completo *</label>
+              <input
+                id="cf-name" type="text" required placeholder="Ej. María Pérez"
+                value={cName} onChange={(e) => setCName(e.target.value)}
+              />
+            </div>
+            <div className="cf-field">
+              <label htmlFor="cf-email">Correo electrónico *</label>
+              <input
+                id="cf-email" type="email" required placeholder="tu@correo.com"
+                value={cEmail} onChange={(e) => setCEmail(e.target.value)}
+              />
+            </div>
+            <div className="cf-field">
+              <label htmlFor="cf-pw">
+                Contraseña *
+                <button
+                  type="button"
+                  className="gen-btn"
+                  onClick={genPassword}
+                  tabIndex={-1}
+                >
+                  generar
+                </button>
+              </label>
+              <input
+                id="cf-pw" type="text" required minLength={8}
+                placeholder="Mínimo 8 caracteres"
+                value={cPassword} onChange={(e) => setCPassword(e.target.value)}
+              />
+            </div>
+            <div className="cf-field">
+              <label htmlFor="cf-role">Rol</label>
+              <select
+                id="cf-role" value={cRole}
+                onChange={(e) => setCRole(e.target.value as AdminUser['role'])}
+              >
+                <option value="user">Alumna</option>
+                <option value="coach">Coach</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <div className="cf-field">
+              <label htmlFor="cf-plan">
+                Plan {cRole !== 'user' && <span className="dim">(solo alumnas)</span>}
+              </label>
+              <select
+                id="cf-plan" value={cPlan}
+                onChange={(e) => setCPlan(e.target.value)}
+                disabled={cRole !== 'user'}
+              >
+                <option value="">— sin plan —</option>
+                {plans.map((p) => (
+                  <option key={p.slug} value={p.slug}>{p.name}</option>
+                ))}
+              </select>
+            </div>
+            <div className="cf-field">
+              <label htmlFor="cf-coach">
+                Coach {cRole !== 'user' && <span className="dim">(solo alumnas)</span>}
+              </label>
+              <select
+                id="cf-coach" value={cCoach}
+                onChange={(e) => setCCoach(e.target.value)}
+                disabled={cRole !== 'user'}
+              >
+                <option value="">— sin asignar —</option>
+                {coaches.map((c) => (
+                  <option key={c.id} value={c.id}>{c.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {cError && <div className="cf-err" role="alert">{cError}</div>}
+
+          <div className="cf-actions">
+            <button
+              type="button" className="btn ghost"
+              onClick={() => { setShowCreate(false); resetCreate(); }}
+            >
+              Cancelar
+            </button>
+            <button type="submit" className="btn primary" disabled={cPending}>
+              {cPending ? 'Creando…' : 'Crear usuario →'}
+            </button>
+          </div>
+        </form>
+      )}
 
       <div className="table-wrap">
         <table className="users-table">
