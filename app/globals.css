@@ -47,6 +47,13 @@
   nav ul a:hover{color:var(--gold)}
   nav.top.scrolled ul a{color:var(--ink-2)}
   nav.top.scrolled ul a:hover{color:var(--clay)}
+  nav ul a.nav-pill{
+    border:1px solid rgba(251,251,247,.4);padding:5px 12px;border-radius:999px;
+    color:rgba(251,251,247,.95);font-weight:500;transition:all .2s;
+  }
+  nav ul a.nav-pill:hover{background:rgba(251,251,247,.12);border-color:var(--gold);color:var(--gold)}
+  nav.top.scrolled ul a.nav-pill{border-color:var(--ink-2);color:var(--ink)}
+  nav.top.scrolled ul a.nav-pill:hover{background:var(--cream-2);border-color:var(--clay);color:var(--clay)}
   nav .cta-nav{
     font-size:12px;padding:10px 18px;border:1px solid var(--cream);color:var(--cream);border-radius:999px;
     transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-weight:500;
