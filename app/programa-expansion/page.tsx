@@ -139,7 +139,13 @@ export default function Expansion7Page() {
 
       {/* ═════════════ HERO ═════════════ */}
       <header className="hero p7-hero">
-        <div className="hero-overlay" aria-hidden="true" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="p7-hero-bg"
+          src="/assets/jhana-stage-wide.jpg"
+          alt="Jhana El Aridi en escenario"
+          aria-hidden="true"
+        />
         <div className="container">
           <div className="hero-content">
             <div className="eyebrow">
@@ -254,7 +260,7 @@ export default function Expansion7Page() {
             </ul>
             <div className="p7-photo" aria-hidden="true">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/jhana-extra-2.jpg" alt="" loading="lazy" />
+              <img src="/assets/jhana-laughing.jpg" alt="Jhana El Aridi sonriendo" loading="lazy" />
             </div>
           </div>
 
@@ -280,16 +286,38 @@ export default function Expansion7Page() {
             </h2>
           </div>
 
-          <div className="p7-includes">
-            {INCLUDES.map((item, i) => (
-              <div key={i} className="p7-incl">
-                <div className="pi-icon">{item.icon}</div>
-                <div className="pi-body">
-                  <strong>{item.title}</strong>
-                  <span>{item.desc}</span>
+          <div className="p7-includes-row">
+            <div className="p7-includes-grid">
+              {INCLUDES.map((item, i) => (
+                <div key={i} className="p7-incl">
+                  <div className="pi-icon">{item.icon}</div>
+                  <div className="pi-body">
+                    <strong>{item.title}</strong>
+                    <span>{item.desc}</span>
+                  </div>
                 </div>
+              ))}
+            </div>
+
+            <aside className="p7-live-card" aria-hidden="true">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/jhana-stage-mic.jpg"
+                alt="Jhana El Aridi en encuentro en vivo"
+                loading="lazy"
+              />
+              <div className="plc-overlay">
+                <span className="mono">— Encuentros en vivo</span>
+                <h4>
+                  7 Zoom de <em>2 horas</em>,<br />
+                  no clases pre-grabadas.
+                </h4>
+                <p>
+                  Energía grupal, preguntas en tiempo real, integración real
+                  en tu vida — no solo en tu cabeza.
+                </p>
               </div>
-            ))}
+            </aside>
           </div>
         </div>
       </section>

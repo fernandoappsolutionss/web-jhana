@@ -1,21 +1,35 @@
 /* ═════════════ Programa Expansión · 7 semanas ═════════════ */
 /* Hereda variables y primitivas de globals.css. */
 
-/* Hero sin video — fondo verde con foto Jhana ambient (placeholder) */
+/* Hero con foto de fondo full-bleed + overlay oscuro */
 .p7-hero{
   background:
     linear-gradient(160deg, var(--brick) 0%, var(--clay-d) 100%);
 }
+.p7-hero .p7-hero-bg{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center 30%;
+  z-index:0;pointer-events:none;
+}
 .p7-hero::before{
   content:"";position:absolute;inset:0;
-  background-image:
-    radial-gradient(ellipse 70% 60% at 80% 30%, rgba(124,156,110,.28), transparent 60%),
-    radial-gradient(ellipse 60% 70% at 20% 80%, rgba(28,58,38,.5), transparent 60%),
-    repeating-linear-gradient(135deg, rgba(244,236,222,.04) 0 1px, transparent 1px 28px);
+  background:
+    linear-gradient(180deg, rgba(22,34,24,.35) 0%, rgba(22,34,24,.62) 55%, rgba(22,34,24,.85) 100%),
+    radial-gradient(ellipse 70% 60% at 25% 50%, rgba(28,58,38,.55), transparent 65%);
+  pointer-events:none;
+  z-index:1;
+}
+.p7-hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:repeating-linear-gradient(135deg, rgba(244,236,222,.04) 0 1px, transparent 1px 28px);
   pointer-events:none;
   z-index:1;
 }
 .p7-hero .container{position:relative;z-index:2}
+@media (max-width:720px){
+  .p7-hero .p7-hero-bg{object-position:center top}
+  .p7-hero::before{background:linear-gradient(180deg, rgba(22,34,24,.55) 0%, rgba(22,34,24,.78) 100%)}
+}
 
 /* ——— 4 pilares ——— */
 .p7-pillars{
@@ -109,10 +123,40 @@
 }
 
 /* ——— Qué incluye ——— */
-.p7-includes{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
+.p7-includes-row{
+  display:grid;grid-template-columns:1.5fr 1fr;gap:24px;align-items:start;
 }
-@media(max-width:760px){.p7-includes{grid-template-columns:1fr}}
+@media(max-width:1000px){.p7-includes-row{grid-template-columns:1fr}}
+
+.p7-includes, .p7-includes-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+@media(max-width:760px){.p7-includes-grid, .p7-includes{grid-template-columns:1fr}}
+
+.p7-live-card{
+  position:relative;aspect-ratio:3/4;border-radius:2px;overflow:hidden;
+  box-shadow:0 30px 60px -28px rgba(28,58,38,.5);
+}
+.p7-live-card img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;
+}
+.p7-live-card .plc-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(22,34,24,0) 35%, rgba(22,34,24,.75) 75%, rgba(22,34,24,.9) 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:32px;color:var(--cream);
+}
+.p7-live-card .plc-overlay .mono{
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:10px;
+}
+.p7-live-card .plc-overlay h4{
+  font-family:'Fraunces',serif;font-weight:300;font-size:clamp(22px,2.4vw,28px);
+  line-height:1.15;letter-spacing:-.02em;margin:0 0 10px;color:var(--cream);
+}
+.p7-live-card .plc-overlay h4 em{font-style:italic;color:var(--gold)}
+.p7-live-card .plc-overlay p{
+  font-size:13px;line-height:1.5;color:rgba(251,251,247,.85);margin:0;
+}
 .p7-incl{
   display:flex;gap:18px;align-items:flex-start;
   padding:24px;background:var(--cream-2);border:1px solid var(--line);border-radius:2px;
