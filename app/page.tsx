@@ -15,7 +15,7 @@ export default function LandingPage() {
           <li><a href="#testimonios">Testimonios</a></li>
           <li><a href="#precio">Inversión</a></li>
           <li><a href="#faq">Preguntas</a></li>
-          <li><Link className="nav-pill" href="/programa-expansion">Programa 7 sem</Link></li>
+          <li><Link className="nav-pill" href="/programa-expansion">DESPIERTA · 30 días</Link></li>
         </ul>
         <div className="nav-cluster">
           <Link className="nav-login" href="/login">Iniciar sesión</Link>
