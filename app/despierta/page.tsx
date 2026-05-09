@@ -837,7 +837,7 @@ export default function DespertaPage() {
               <h5>Programas</h5>
               <ul>
                 <li><Link href="/">Expansión 10X · 12 semanas</Link></li>
-                <li><Link href="/programa-expansion">DESPIERTA · 30 días</Link></li>
+                <li><Link href="/despierta">DESPIERTA · 30 días</Link></li>
               </ul>
             </div>
             <div>
